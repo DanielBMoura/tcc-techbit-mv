@@ -1,0 +1,39 @@
+PROJETO TCC MURILO  - 15/06/24
+
+Pesquisa de referências dos sites:
+
+https://tecnicadenardo.com.br/
+https://www.ludufix.com.br/
+https://vendfix.com.br/
+https://www.orbrasil.com.br/
+
+
+Topbar:
+Email;
+numero;
+local da empresa;
+horario de funcionamento.
+
+
+Menu superior:
+
+logo;
+Home;
+produtos;
+sobre a empresa;
+contato;
+numero de contato a mostra;
+pesquisa;
+email.
+
+
+Submenu:
+
+presente em algumas categorias do menu, como na seção produtos.
+
+
+Home: 
+
+Carrosel com produtos vendidos e informações sobre;
+breve apresentação da empresa.
+
