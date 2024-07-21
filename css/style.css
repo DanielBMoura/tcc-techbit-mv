@@ -413,6 +413,12 @@ body {
     margin: 10px;
 }
 
+@media (max-width: 768px){
+    .sobretech .sobreValores{
+        display: block;
+    }
+}
+
 /* começo rodape */
 footer {
     width: 100%;
@@ -492,9 +498,14 @@ footer .politic a:hover{
     color: #FFF;
     cursor: pointer;
 }
+@media (max-width: 768px){
+    .tudoRodape .esquerdarodape{
+        display: none;
+    }
+}
+
 
  /* FALE CONOSCO HTML */ 
-/* MANTER A BAIXO DO INDEX */ 
 
 /* começo fale conosco */
 .testetudo {
@@ -594,33 +605,32 @@ footer .politic a:hover{
  /* login HTML */ 
 /* MANTER A BAIXO DO CONTATO */ 
 
+/* Regra geral para a tela de login */
 .login {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Altura total da viewport */
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 100vh;
     width: 100%;
+    padding: 20px; /* Adicionar padding para evitar que os elementos toquem as bordas */
 }
 
+/* Estilos para a caixa de login */
 .boxlogin {
-    width: auto;
-    max-width: 400px; /* Definir um tamanho máximo para o box */
-    height: auto;
-    background: white; /* Pode ser ajustado conforme o design desejado */
+    width: 100%;
+    max-width: 400px;
+    background: white;
     padding: 20px;
     box-shadow: 0 0 10px #1E1E1E;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaçamento vertical entre os elementos */
+    gap: 15px;
 }
 
+/* Título e subtítulo */
 .boxlogin .titlle {
     width: 100%;
-    height: 35px;
     text-align: center;
     background-color: #1E73BE;
     border-radius: 10px;
@@ -628,6 +638,7 @@ footer .politic a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .boxlogin .subtittle {
@@ -635,50 +646,42 @@ footer .politic a:hover{
     padding: 15px;
 }
 
+/* Inputs de email e senha */
 .boxlogin .email,
-.boxlogin .user,
 .boxlogin .senha {
     display: flex;
-    align-items: center; /* Alinha verticalmente os itens ao centro */
-    gap: 5px; /* Espaçamento entre a imagem e o input */
+    align-items: center;
+    gap: 5px;
 }
 
 .boxlogin .email input,
-.boxlogin .user input,
 .boxlogin .senha input {
-    width: 100%; /* Faz o input crescer para ocupar o espaço disponível */
+    width: 100%;
     height: 35px;
+    padding: 5px;
 }
 
-.boxlogin input {
-    margin: 0.7rem 0;
-}
-
+/* Estilos para checkbox e links */
 .boxlogin .lembrar {
     display: flex;
-    align-items: center;
-    gap: 10px; /* Espaçamento entre a checkbox e o texto */
+    flex-wrap: wrap; /* Permitir que os elementos quebrem linha */
+    gap: 10px;
 }
 
 .boxlogin .lembrar h5 {
-    margin: 0; /* Remove margens padrão */
+    margin: 0;
 }
 
-.boxlogin .esqueci h5:hover,
-.boxlogin .cadastro h3:hover,
-.boxlogin .lembrar h5:hover {
-    color: #1E73BE;
-}
-
+/* Botões */
 .boxlogin .botoes {
     display: flex;
-    flex-direction: column; /* Colocar os botões em coluna para telas pequenas */
-    gap: 10px; /* Espaçamento entre os botões */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .botoes .acessar button,
 .botoes .voltar button {
-    width: 100px;
+    width: 100%;
     height: 35px;
     border: none;
     border-radius: 15px;
@@ -687,24 +690,16 @@ footer .politic a:hover{
     cursor: pointer;
 }
 
-@media (min-width: 600px) {
+/* Media queries para telas menores */
+@media (max-width: 600px) {
     .boxlogin {
-        max-width: 500px; /* Aumentar o tamanho máximo para telas maiores */
-    }
-
-    .boxlogin .botoes {
-        flex-direction: row; /* Botões em linha para telas maiores */
-        justify-content: space-between;
-    }
-}
-
-@media (max-width: 400px) {
-    .boxlogin {
-        padding: 15px; /* Reduzir o padding para telas menores */
+        max-width: 90%; /* Ajustar a largura máxima para telas menores */
+        padding: 15px;
     }
 
     .boxlogin .titlle {
-        height: 30px; /* Reduzir a altura do título */
+        height: auto;
+        padding: 8px; /* Reduzir padding para o título */
     }
 
     .boxlogin .subtittle {
@@ -712,14 +707,13 @@ footer .politic a:hover{
     }
 
     .boxlogin .email input,
-    .boxlogin .user input,
     .boxlogin .senha input {
-        height: 30px; /* Reduzir a altura dos inputs para telas menores */
+        height: 30px;
     }
 
     .botoes .acessar button,
     .botoes .voltar button {
-        height: 30px; /* Reduzir a altura dos botões */
+        height: 30px;
     }
 }
 
@@ -753,6 +747,7 @@ footer .politic a:hover{
     background-color: #E4E4E4;
     padding: 15px;
     border-radius: 15px;
+    box-shadow: 0 0 10px #1E1E1E;
 }
 
 .products .navegaProduct h3{
@@ -845,4 +840,14 @@ footer .politic a:hover{
 
 .close-button:hover {
     background-color: #0056b3;
+}
+
+@media(max-width: 768px){
+    .products{
+        display: block;
+    }
+    .products .produtosBo{
+        flex-wrap: wrap;
+        padding-top: 50px;
+    }
 }
