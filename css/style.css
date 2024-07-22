@@ -12,7 +12,6 @@ body {
 }
 
 /* começo topbar */
-
 .topbar {
     width: 100%;
     height: 35px;
@@ -46,66 +45,65 @@ body {
 }
 
 .topbar .info li {
-    margin: 0 10px; /* Adiciona um espaçamento de 10px à esquerda e à direita de cada item */
+    margin: 0 10px;
     padding-top: 5px;
 }
 
-        /* Media Queries para telas menores */
-        @media (max-width: 768px) {
-            .topbar .local,
-            .topbar .info {
-                display: none;
-            }
+@media (max-width: 768px) {
 
-            .topbar {
-                justify-content: center; /* Centraliza o bemvnd */
-                height: auto;
-            }
+    .topbar .local,
+    .topbar .info {
+        display: none;
+    }
 
-            .topbar .bemvnd {
-                font-size: 14px; /* Aumenta o tamanho da fonte para melhor legibilidade */
-                padding-top: 5px;
-                padding-left: 0;
-            }
+    .topbar {
+        justify-content: center;
+        height: auto;
+    }
 
-            .topbar .bemvnd img {
-                width: 20px;
-                height: 20px;
-            }
+    .topbar .bemvnd {
+        font-size: 14px;
+        padding-top: 5px;
+        padding-left: 0;
+    }
 
-            .topbar .bemvnd h1 {
-                font-size: 16px;
-            }
-        }
+    .topbar .bemvnd img {
+        width: 20px;
+        height: 20px;
+    }
 
-        @media (max-width: 480px) {
-            .topbar .bemvnd {
-                font-size: 12px;
-            }
+    .topbar .bemvnd h1 {
+        font-size: 16px;
+    }
+}
 
-            .topbar .bemvnd h1 {
-                font-size: 14px;
-            }
-        }
+@media (max-width: 480px) {
+    .topbar .bemvnd {
+        font-size: 12px;
+    }
+
+    .topbar .bemvnd h1 {
+        font-size: 14px;
+    }
+}
 
 /* começo navbar */
-
 .navbar {
     width: 100%;
     height: 80px;
     display: flex;
     background-color: #00BFFF;
-    position: relative; 
-    z-index: 10; 
-    align-items: center; /* Alinha itens verticalmente */
+    position: relative;
+    z-index: 10;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 0;
-    padding-bottom: 0; 
+    padding-bottom: 0;
 }
 
 .navbar .logo {
-    width: 150px; 
-    height: 5px; 
+    width: 150px;
+    height: 5px;
     display: flex;
     padding-left: 160px;
     align-items: center;
@@ -114,9 +112,9 @@ body {
 
 .navbar .esquerda {
     width: 150px;
-    height: 80px; /* Altere para 80px para igualar a altura da navbar */
+    height: 80px;
     display: flex;
-    align-items: center; /* Alinha verticalmente */
+    align-items: center;
 }
 
 .navbar .direita {
@@ -124,11 +122,11 @@ body {
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Alinha à direita */
-    margin-right: 50px; /* Espaçamento à direita */
+    justify-content: flex-end;
+    margin-right: 50px;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     position: absolute;
     box-shadow: 0 0 2px #000;
     display: none;
@@ -136,7 +134,7 @@ body {
     text-align: center;
 }
 
-.dropdown-menu a{
+.dropdown-menu a {
     display: block;
     color: #000;
     background-color: #EAE8E8;
@@ -145,7 +143,7 @@ body {
     padding-top: 5px;
 }
 
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
@@ -155,7 +153,7 @@ body {
     text-decoration: none;
 }
 
-/* Ícone do menu para telas pequenas */
+/* Ícone do menu responsivo */
 .menu-icon {
     display: none;
     font-size: 30px;
@@ -164,18 +162,18 @@ body {
     color: white;
 }
 
-/* Menu lateral */
+/* Menu lateral responsivo*/
 .sidenav {
-    height: 100%; /* Full-height */
-    width: 0; /* Inicialmente fechado */
-    position: fixed; /* Fica fixo na tela */
-    z-index: 11; /* Sobrepõe o conteúdo */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 11;
     top: 0;
     right: 0;
-    background-color: #00BFFF; /* Cor do fundo do menu */
-    overflow-x: hidden; /* Não permitir overflow horizontal */
-    transition: 0.5s; /* Animação de abertura */
-    padding-top: 60px; /* Espaço no topo */
+    background-color: #00BFFF;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidenav a {
@@ -199,31 +197,31 @@ body {
     margin-left: 50px;
 }
 
-/* Media Queries para telas menores */
 @media (max-width: 768px) {
     .navbar .direita {
-        display: none; /* Esconde a seção direita */
+        display: none;
     }
 
     .menu-icon {
-        display: block; /* Mostra o ícone do menu */
+        display: block;
     }
 }
 
 /* começo carrossel */
 .carrossel {
     width: 100%;
-    margin: 0; /* Remove a margem */
-    padding: 0; /* Remove o padding */
+    margin: 0;
+    padding: 0;
 }
+
 .container-slider {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 80px; /* Adiciona margem superior para empurrar o carrossel para baixo */
-    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+    margin-top: 80px;
+    flex-wrap: wrap;
 }
 
 .container-imgs {
@@ -232,7 +230,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 290px; /* Ajuste conforme necessário */
+    height: 290px;
 }
 
 .slider {
@@ -247,11 +245,11 @@ body {
 }
 
 #voltar-button {
-    left: 10px; /* Posiciona o botão de voltar à esquerda */
+    left: 10px;
 }
 
 #passar-button {
-    right: 10px; /* Posiciona o botão de passar à direita */
+    right: 10px;
 }
 
 #voltar-button,
@@ -276,19 +274,20 @@ body {
 #passar-button img {
     transform: rotate(180deg);
 }
+
 @media (max-width: 768px) {
     .container-slider {
         margin-top: 0;
     }
 
     .container-imgs {
-        height: 220px; /* Ajuste conforme necessário */
+        height: 220px;
     }
 
     #voltar-button img,
     #passar-button img {
-    width: 80%;
-    height: 80%;
+        width: 80%;
+        height: 80%;
     }
 }
 
@@ -296,34 +295,23 @@ body {
     .container-slider {
         margin-top: 0;
     }
+
     .container-imgs {
-        height: 150px; /* Ajuste conforme necessário */
+        height: 150px;
     }
 }
 
 /* começo produtos home */
-
 .produtos {
     width: 90%;
     margin: 50px auto;
-    margin-top: 150px; /* Aumente esta linha para mover a seção de produtos ainda mais para baixo */
+    margin-top: 150px;
     text-align: center;
-}
-@media (max-width: 768px) {
-    .produtos {
-        margin-top: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .produtos {
-        margin-top: 50px;
-    }
 }
 
 .produtos h1 {
     font-size: 2em;
-    color: #000000; /* cor do texto "PRODUTOS" */
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -331,7 +319,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* espaçamento entre os produtos */
+    gap: 20px;
 }
 
 .produtos .cases .prod {
@@ -340,17 +328,16 @@ body {
     padding: 10px;
     transition: transform 0.3s ease;
     text-align: center;
-    flex: 1 1 calc(20% - 20px); /* ajusta a largura dos produtos */
+    flex: 1 1 calc(20% - 20px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .produtos .cases .prod img {
     width: 100%;
     height: auto;
-    max-height: 150px; /* ajusta a altura máxima das imagens */
-    object-fit: contain; /* mantém a proporção da imagem */
+    max-height: 150px;
+    object-fit: contain;
 }
-
 
 .produtos .cases .prod h4 {
     color: #FFF;
@@ -367,6 +354,18 @@ body {
     transform: scale(1.05);
     background-color: #00BFFF;
 
+}
+
+@media (max-width: 768px) {
+    .produtos {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .produtos {
+        margin-top: 50px;
+    }
 }
 
 /* começo sobre a empresa */
@@ -413,8 +412,8 @@ body {
     margin: 10px;
 }
 
-@media (max-width: 768px){
-    .sobretech .sobreValores{
+@media (max-width: 768px) {
+    .sobretech .sobreValores {
         display: block;
     }
 }
@@ -431,23 +430,24 @@ footer {
     z-index: 10;
 }
 
-footer a{
+footer a {
     color: #FFF;
 }
 
-footer .politic{
+footer .politic {
     text-align: center;
     color: #000;
 }
 
-footer .politic a{
+footer .politic a {
     color: #4e4e4e;
 }
-footer .politic a:hover{
+
+footer .politic a:hover {
     color: #1E73BE;
 }
 
-.tudoRodape{
+.tudoRodape {
     height: 270px;
     background-color: #0056b3;
     display: flex;
@@ -456,11 +456,11 @@ footer .politic a:hover{
     gap: 300px;
 }
 
-.tudoRodape .esquerdarodape h5:hover{
+.tudoRodape .esquerdarodape h5:hover {
     color: #D9D9D9;
 }
 
-.tudoRodape .esquerdarodape .contats{
+.tudoRodape .esquerdarodape .contats {
     display: flex;
 }
 
@@ -468,14 +468,14 @@ footer .politic a:hover{
     display: flex;
     align-items: center;
     text-decoration: none;
-    margin-bottom: 10px; /* Ajuste conforme necessário */
+    margin-bottom: 10px;
     gap: 10px;
 }
 
 .contacts img {
-    margin-right: 10px; 
-    width: 40px; 
-    height: 40px; 
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 .tudoRodape .direitarodape .innfos {
@@ -483,13 +483,13 @@ footer .politic a:hover{
     gap: 10px;
 }
 
-.tudoRodape .direitarodape .innfos input{
+.tudoRodape .direitarodape .innfos input {
     width: 280px;
     height: 35px;
     border-radius: 5px;
 }
 
-.tudoRodape .direitarodape .innfos button{
+.tudoRodape .direitarodape .innfos button {
     width: 100px;
     height: 35px;
     border: none;
@@ -498,25 +498,25 @@ footer .politic a:hover{
     color: #FFF;
     cursor: pointer;
 }
-@media (max-width: 768px){
-    .tudoRodape .esquerdarodape{
+
+@media (max-width: 768px) {
+    .tudoRodape .esquerdarodape {
         display: none;
     }
 }
 
 
- /* FALE CONOSCO HTML */ 
-
+/* FALE CONOSCO HTML */
 /* começo fale conosco */
 .testetudo {
     display: flex;
-    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+    flex-wrap: wrap;
     gap: 15rem;
     padding: 2rem;
     color: #000000;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .testetudo .esquedaform {
@@ -537,7 +537,7 @@ footer .politic a:hover{
     text-align: center;
     color: #fff;
     border-radius: 5px;
-    line-height: 2.5rem; /* Alinha o texto verticalmente */
+    line-height: 2.5rem;
 }
 
 .testetudo .contato input {
@@ -548,7 +548,7 @@ footer .politic a:hover{
     background-color: #D9D9D9;
     border: none;
     padding-left: 0.5rem;
-    margin: 0.5rem 0; /* Espaçamento entre os inputs */
+    margin: 0.5rem 0;
 }
 
 .testetudo .contato .nome,
@@ -580,11 +580,11 @@ footer .politic a:hover{
     cursor: pointer;
 }
 
-.testetudo .contato .enviar button:hover{
+.testetudo .contato .enviar button:hover {
     background-color: #0056b3;
 }
 
-.testetudo .direitaform{
+.testetudo .direitaform {
     width: 480px;
     height: 420px;
     align-items: center;
@@ -594,7 +594,8 @@ footer .politic a:hover{
     gap: 20px;
     box-shadow: 0 0 10px #1E1E1E;
 }
-.testetudo .direitaform h2{
+
+.testetudo .direitaform h2 {
     align-items: center;
     text-align: center;
     background-color: #1E73BE;
@@ -602,20 +603,17 @@ footer .politic a:hover{
     border-radius: 10px;
 }
 
- /* login HTML */ 
-/* MANTER A BAIXO DO CONTATO */ 
-
-/* Regra geral para a tela de login */
+/* login e cadastro HTML */
+/* começo login e cadastro */
 .login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-    padding: 20px; /* Adicionar padding para evitar que os elementos toquem as bordas */
+    padding: 20px;
 }
 
-/* Estilos para a caixa de login */
 .boxlogin {
     width: 100%;
     max-width: 400px;
@@ -628,7 +626,6 @@ footer .politic a:hover{
     gap: 15px;
 }
 
-/* Título e subtítulo */
 .boxlogin .titlle {
     width: 100%;
     text-align: center;
@@ -646,7 +643,6 @@ footer .politic a:hover{
     padding: 15px;
 }
 
-/* Inputs de email e senha */
 .boxlogin .email,
 .boxlogin .senha {
     display: flex;
@@ -661,10 +657,9 @@ footer .politic a:hover{
     padding: 5px;
 }
 
-/* Estilos para checkbox e links */
 .boxlogin .lembrar {
     display: flex;
-    flex-wrap: wrap; /* Permitir que os elementos quebrem linha */
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -672,7 +667,6 @@ footer .politic a:hover{
     margin: 0;
 }
 
-/* Botões */
 .boxlogin .botoes {
     display: flex;
     flex-direction: column;
@@ -690,16 +684,15 @@ footer .politic a:hover{
     cursor: pointer;
 }
 
-/* Media queries para telas menores */
 @media (max-width: 600px) {
     .boxlogin {
-        max-width: 90%; /* Ajustar a largura máxima para telas menores */
+        max-width: 90%;
         padding: 15px;
     }
 
     .boxlogin .titlle {
         height: auto;
-        padding: 8px; /* Reduzir padding para o título */
+        padding: 8px;
     }
 
     .boxlogin .subtittle {
@@ -717,9 +710,9 @@ footer .politic a:hover{
     }
 }
 
-/* comeco produtos HTML */
-
-.linhaprinc{
+/* produtos HTML */
+/* começo produtos */
+.linhaprinc {
     width: 100%;
     height: 100px;
     display: flex;
@@ -736,12 +729,13 @@ footer .politic a:hover{
     padding-right: 10%;
     padding-left: 5%;
 }
-.products .produtosBo{
+
+.products .produtosBo {
     display: flex;
     gap: 20px;
 }
 
-.products .navegaProduct{
+.products .navegaProduct {
     width: 400px;
     height: 260px;
     background-color: #E4E4E4;
@@ -750,22 +744,22 @@ footer .politic a:hover{
     box-shadow: 0 0 10px #1E1E1E;
 }
 
-.products .navegaProduct h3{
+.products .navegaProduct h3 {
     text-align: center;
 }
 
 
-.products .navegaProduct .prods{
+.products .navegaProduct .prods {
     padding-top: 20px;
     padding-left: 20px;
     gap: 50px;
 }
 
-.products .navegaProduct .prods a{
+.products .navegaProduct .prods a {
     color: #000;
 }
 
-.products .navegaProduct .prods a:hover{
+.products .navegaProduct .prods a:hover {
     color: #007bff;
     transition: 0.2s ease-in-out;
 }
@@ -804,16 +798,19 @@ footer .politic a:hover{
     background-color: #0056b3;
 }
 
-.rebites, .rebiManual, .rebiHidro {
+.rebites,
+.rebiManual,
+.rebiHidro {
     display: none;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     gap: 20px;
 }
+
 .product-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem em linhas */
+    flex-wrap: wrap;
     justify-content: centrer;
     gap: 20px;
 }
@@ -823,8 +820,8 @@ footer .politic a:hover{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 30%; /* Define a largura dos produtos para 30% do contêiner */
-    box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+    flex: 1 1 30%;
+    box-sizing: border-box;
 }
 
 .close-button {
@@ -834,7 +831,7 @@ footer .politic a:hover{
     padding: 10px 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px; /* Adicione margem superior para separar o botão dos produtos */
+    margin-top: 10px;
     position: relative;
 }
 
@@ -842,12 +839,17 @@ footer .politic a:hover{
     background-color: #0056b3;
 }
 
-@media(max-width: 768px){
-    .products{
+@media(max-width: 768px) {
+    .products {
         display: block;
     }
-    .products .produtosBo{
+
+    .products .produtosBo {
         flex-wrap: wrap;
         padding-top: 50px;
+    }
+
+    .products .navegaProduct {
+        width: 350px;
     }
 }
