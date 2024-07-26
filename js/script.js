@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function startSliderInterval() {
-        intervalId = setInterval(nextSlide, 6000); // Muda para o próximo slide a cada 6 segundos
+        intervalId = setInterval(nextSlide, 4000); // Muda para o próximo slide a cada 6 segundos
     }
 
     if (btnVoltar && btnPassar) {
@@ -73,64 +73,80 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     //
-    // Mostrar Div Rebites
-    const showRebitesLink = document.getElementById('show-rebites');
-    const rebitesDiv = document.getElementById('rebites');
-    const closeRebitesButton = document.getElementById('close-rebites');
-    const produtosBoDiv = document.querySelector('.produtosBo');
+ // Mostrar Div Rebites
+ const showRebitesLink = document.getElementById('show-rebites');
+ const rebitesDiv = document.getElementById('rebites');
+ const closeRebitesButton = document.getElementById('close-rebites');
+ const produtosBoDiv = document.querySelector('.produtosBo');
 
-    if (showRebitesLink && rebitesDiv && closeRebitesButton) {
-        showRebitesLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            rebitesDiv.style.display = 'flex';
-            rebiManualDiv.style.display = 'none';
-            rebiHidroDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'none';
-        });
+ if (showRebitesLink && rebitesDiv && closeRebitesButton) {
+     showRebitesLink.addEventListener('click', function (event) {
+         event.preventDefault();
+         rebitesDiv.style.display = 'flex';
+         rebiManualDiv.style.display = 'none';
+         rebiHidroDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'none';
+     });
 
-        closeRebitesButton.addEventListener('click', function () {
-            rebitesDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
-        });
-    }
+     closeRebitesButton.addEventListener('click', function () {
+         rebitesDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
+     });
+ }
 
-    // Mostrar Div RebiManual
-    const showRebiManualLink = document.getElementById('show-rebiManual');
-    const rebiManualDiv = document.getElementById('rebiManual');
-    const closeRebiManualButton = document.getElementById('close-rebiManual');
+ // Mostrar Div RebiManual
+ const showRebiManualLink = document.getElementById('show-rebiManual');
+ const rebiManualDiv = document.getElementById('rebiManual');
+ const closeRebiManualButton = document.getElementById('close-rebiManual');
 
-    if (showRebiManualLink && rebiManualDiv && closeRebiManualButton) {
-        showRebiManualLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            rebiManualDiv.style.display = 'flex';
-            rebitesDiv.style.display = 'none';
-            rebiHidroDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'none';
-        });
+ if (showRebiManualLink && rebiManualDiv && closeRebiManualButton) {
+     showRebiManualLink.addEventListener('click', function (event) {
+         event.preventDefault();
+         rebiManualDiv.style.display = 'flex';
+         rebitesDiv.style.display = 'none';
+         rebiHidroDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'none';
+     });
 
-        closeRebiManualButton.addEventListener('click', function () {
-            rebiManualDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
-        });
-    }
+     closeRebiManualButton.addEventListener('click', function () {
+         rebiManualDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
+     });
+ }
 
-    // Mostrar Div RebiHidro
-    const showRebiHidroLink = document.getElementById('show-rebiHidro');
-    const rebiHidroDiv = document.getElementById('rebiHidro');
-    const closeRebiHidroButton = document.getElementById('close-rebiHidro');
+ // Mostrar Div RebiHidro
+ const showRebiHidroLink = document.getElementById('show-rebiHidro');
+ const rebiHidroDiv = document.getElementById('rebiHidro');
+ const closeRebiHidroButton = document.getElementById('close-rebiHidro');
 
-    if (showRebiHidroLink && rebiHidroDiv && closeRebiHidroButton) {
-        showRebiHidroLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            rebiHidroDiv.style.display = 'flex';
-            rebitesDiv.style.display = 'none';
-            rebiManualDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'none';
-        });
+ if (showRebiHidroLink && rebiHidroDiv && closeRebiHidroButton) {
+     showRebiHidroLink.addEventListener('click', function (event) {
+         event.preventDefault();
+         rebiHidroDiv.style.display = 'flex';
+         rebitesDiv.style.display = 'none';
+         rebiManualDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'none';
+     });
 
-        closeRebiHidroButton.addEventListener('click', function () {
-            rebiHidroDiv.style.display = 'none';
-            produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
-        });
-    }
+     closeRebiHidroButton.addEventListener('click', function () {
+         rebiHidroDiv.style.display = 'none';
+         produtosBoDiv.style.display = 'flex'; // Volta a exibir produtosBo
+     });
+ }
+});
+
+//carrinho seção
+document.addEventListener('DOMContentLoaded', function() {
+    const carrinhoDiv = document.querySelector('.carrinho a');
+    const carrinhoSection = document.getElementById('carrinho-section');
+    const fecharCarrinhoButton = document.getElementById('fechar-carrinho');
+
+    carrinhoDiv.addEventListener('click', function(event) {
+        event.preventDefault();
+        carrinhoSection.style.display = 'block';
+    });
+
+    fecharCarrinhoButton.addEventListener('click', function() {
+        carrinhoSection.style.display = 'none';
+    });
 });
