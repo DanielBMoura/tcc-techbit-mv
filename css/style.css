@@ -9,6 +9,8 @@
 
 body {
     background: #fff;
+    padding: 0;
+    
 }
 
 /* começo topbar */
@@ -21,9 +23,9 @@ body {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    position: relative; /* Certifica-se de que a topbar seja posicionada corretamente */
-    z-index: 1000; /* Ajusta para garantir que esteja acima do carrossel */
+    position: relative;
 }
+
 .topbar .bemvnd {
     display: flex;
     font-size: 7px;
@@ -88,19 +90,22 @@ body {
     }
 }
 
+.testenav{
+    display: grid;
+}
+
 /* começo navbar */
 .navbar {
     width: 100%;
     height: 80px;
     display: flex;
     background-color: #00BFFF;
-    position: relative;
-    z-index: 1000; /* Ajusta para garantir que a navbar esteja acima do carrossel */
+    position: relative; 
+    z-index: 10; 
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
+
 .navbar .logo {
     width: 150px;
     height: 5px;
@@ -124,6 +129,29 @@ body {
     align-items: center;
     justify-content: flex-end;
     margin-right: 50px;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+#pesquisa_lupa {
+    display: none; 
+    padding: 5px 30px 5px 5px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#close-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+    font-size: 16px;
+    display: none; 
 }
 
 .dropdown-menu {
@@ -210,20 +238,19 @@ body {
 /* começo carrossel */
 .carrossel {
     width: 100%;
-    margin: 0 auto; 
-    box-sizing: border-box; 
-    position: relative; 
-    z-index: 500; 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    position: relative; /* Mantém a posição no fluxo do documento */
+    z-index: 5; /* Ajustado para garantir que fique abaixo da navbar */
 }
 
 .container-slider {
     display: flex;
     width: 100%;
-    margin: 0 auto; /* Centraliza o container */
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 80px;
     flex-wrap: wrap;
 }
 
@@ -233,7 +260,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 290px;
+    height: 430px; 
 }
 
 .slider {
@@ -241,6 +268,8 @@ body {
     position: absolute;
     transition: opacity 1s ease;
     width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 .on {
@@ -278,7 +307,7 @@ body {
     transform: rotate(180deg);
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .container-slider {
         margin-top: 10px;
     }
@@ -315,7 +344,7 @@ body {
     width: 90%;
     height: 400px;
     margin: 50px auto;
-    margin-top: 220px;
+    margin-top: 150px;
     text-align: center;
 }
 
@@ -383,7 +412,6 @@ body {
     width: 95%;
     height: auto;
     padding-left: 5%;
-    padding-top: 30px;
 }
 
 .sobretech .textos {
@@ -423,6 +451,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .sobretech{
+        padding-top: 100px;
+    }
     .sobretech .sobreValores {
         display: block;
     }
@@ -668,14 +699,15 @@ footer .politic a:hover {
 }
 
 .boxlogin .email,
-.boxlogin .senha {
+.boxlogin .senha, .user{
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .boxlogin .email input,
-.boxlogin .senha input {
+.boxlogin .senha input, 
+.user input {
     width: 100%;
     height: 35px;
     padding: 5px;

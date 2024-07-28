@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("mySidenav").style.width = "0";
     };
 
-    //
+
+                    ////////////////////////////
+
  // Mostrar Div Rebites
  const showRebitesLink = document.getElementById('show-rebites');
  const rebitesDiv = document.getElementById('rebites');
@@ -135,6 +137,71 @@ document.addEventListener('DOMContentLoaded', function () {
  }
 });
 
+// mostrar2
+document.addEventListener('DOMContentLoaded', function () {
+    // Referências aos elementos
+    const produtosBoDiv = document.getElementById('produtosBo');
+    const rebitesDiv = document.getElementById('rebites');
+    const rebiManualDiv = document.getElementById('rebiManual');
+    const rebiHidroDiv = document.getElementById('rebiHidro');
+
+    // Mostrar Div Rebites
+    const showRebitesButton = document.getElementById('show-rebites-btn');
+    const closeRebitesButton = document.getElementById('close-rebites');
+
+    if (showRebitesButton && rebitesDiv && closeRebitesButton) {
+        showRebitesButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            rebitesDiv.style.display = 'flex';
+            produtosBoDiv.style.display = 'none';
+        });
+
+        closeRebitesButton.addEventListener('click', function () {
+            rebitesDiv.style.display = 'none';
+            produtosBoDiv.style.display = 'flex';
+        });
+    }
+
+    // Mostrar Div RebiManual
+    const showRebiManualButton = document.getElementById('show-rebiManual-btn');
+    const closeRebiManualButton = document.getElementById('close-rebiManual');
+
+    if (showRebiManualButton && rebiManualDiv && closeRebiManualButton) {
+        showRebiManualButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            rebiManualDiv.style.display = 'flex';
+            rebitesDiv.style.display = 'none';
+            rebiHidroDiv.style.display = 'none';
+            produtosBoDiv.style.display = 'none';
+        });
+
+        closeRebiManualButton.addEventListener('click', function () {
+            rebiManualDiv.style.display = 'none';
+            produtosBoDiv.style.display = 'flex';
+        });
+    }
+
+    // Mostrar Div RebiHidro
+    const showRebiHidroButton = document.getElementById('show-rebiHidro-btn');
+    const closeRebiHidroButton = document.getElementById('close-rebiHidro');
+
+    if (showRebiHidroButton && rebiHidroDiv && closeRebiHidroButton) {
+        showRebiHidroButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            rebiHidroDiv.style.display = 'flex';
+            rebitesDiv.style.display = 'none';
+            rebiManualDiv.style.display = 'none';
+            produtosBoDiv.style.display = 'none';
+        });
+
+        closeRebiHidroButton.addEventListener('click', function () {
+            rebiHidroDiv.style.display = 'none';
+            produtosBoDiv.style.display = 'flex';
+        });
+    }
+});
+
+
 //carrinho seção
 document.addEventListener('DOMContentLoaded', function() {
     const carrinhoDiv = document.querySelector('.carrinho a');
@@ -149,4 +216,23 @@ document.addEventListener('DOMContentLoaded', function() {
     fecharCarrinhoButton.addEventListener('click', function() {
         carrinhoSection.style.display = 'none';
     });
+});
+
+
+// lupa pesquisar
+
+document.getElementById('lupa').addEventListener('click', function(event) {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    const input = document.getElementById('pesquisa_lupa');
+    const closeBtn = document.getElementById('close-btn');
+    input.style.display = 'block'; // Mostra o campo de entrada
+    closeBtn.style.display = 'block'; // Mostra o botão de fechar
+    input.focus(); // Foca no campo de entrada para facilitar a digitação
+});
+
+document.getElementById('close-btn').addEventListener('click', function() {
+    const input = document.getElementById('pesquisa_lupa');
+    const closeBtn = document.getElementById('close-btn');
+    input.style.display = 'none'; // Esconde o campo de entrada
+    closeBtn.style.display = 'none'; // Esconde o botão de fechar
 });
