@@ -192,11 +192,15 @@
                 <div class="direitarodape">
                     <h2>NEWSLETTER</h2>
                     <div class="innfos">
-                        <h4>Nome:</h4>
-                        <input type="text" name="" id="" placeholder="Escreva seu nome">
-                        <h4>Email:</h4>
-                        <input type="email" name="" id="" placeholder="Escreva seu E-mail">
-                        <button>Enviar</button>
+                        <form action="/submit-form" method="post">
+                            <h4>Nome:</h4>
+                            <input type="text" name="nome" id="nome" placeholder="Escreva seu nome" required>
+                            
+                            <h4>Email:</h4>
+                            <input type="email" name="email" id="email" placeholder="Escreva seu E-mail" required>
+                            
+                            <button type="submit">Enviar</button>
+                        </form>
                     </div>
                 </div>
             </div>
