@@ -35,47 +35,46 @@
         </div>
     </header>
 
-    <!-- começo login -->
-    <div class="login">
-        <div class="boxlogin">
-            <div class="titlle">
-                <h2>CADASTRO</h2>
-            </div>
-            <div class="subtittle">
-                <h4>Preencha os campos abaixo para fazer Login</h4>
-            </div>
-            
+    <!-- começo cadastro -->
+<div class="login">
+    <div class="boxlogin">
+        <div class="titlle">
+            <h2>CADASTRO</h2>
+        </div>
+        <div class="subtittle">
+            <h4>Preencha os campos abaixo para fazer Cadastro</h4>
+        </div>
+        <form action="/cadastro" method="POST">
             <h3>Nome de usuário:<br></h3>
             <div class="user">
-                <img src="icons/icons8-usuário-30.png" alt="mail">
-                <input type="email" placeholder="Digite seu nome">
+                <img src="icons/icons8-usuário-30.png" alt="user">
+                <input type="text" name="username" placeholder="Digite seu nome" required>
             </div>
-
             <h3>Email:<br></h3>
             <div class="email">
                 <img src="icons/icons8-mensagem-30.png" alt="mail">
-                <input type="email" placeholder="Digite seu E-mail">
+                <input type="email" name="email" placeholder="Digite seu E-mail" required>
             </div>
-
             <h3>Senha:<br></h3>
             <div class="senha">
                 <img src="icons/icons8-cadeado-30.png" alt="senha">
-                <input type="password" id="campoSenha" name="campoSenha" placeholder="Digite sua senha">
+                <input type="password" id="campoSenha" name="senha" placeholder="Digite sua senha" required>
             </div>
             <div class="lembrar">
-                <h5><input type="checkbox" id="botaoMostrarSenha">Mostrar senha</h5>
-                <h5><input type="checkbox">Lembrar senha</h5>
+                <h5><input type="checkbox" id="botaoMostrarSenha" onclick="mostrarSenha()">Mostrar senha</h5>
+                <h5><input type="checkbox" name="lembrar">Lembrar senha</h5>
             </div>
             <div class="botoes">
                 <div class="acessar">
-                    <button>Criar conta</button>
+                    <button type="submit">Criar conta</button>
                 </div>
                 <div class="voltar">
-                    <a href="index.html"><button>voltar</button></a>
+                    <a href="index.html"><button type="button">Voltar</button></a>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+</div>
 
 </body>
 

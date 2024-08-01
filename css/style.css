@@ -693,11 +693,13 @@ footer .politic a:hover {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin-bottom: 15px;
 }
 
 .boxlogin .subtittle {
     text-align: center;
     padding: 15px;
+    margin-bottom: 15px;
 }
 
 .boxlogin .email,
@@ -705,6 +707,7 @@ footer .politic a:hover {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-bottom: 15px;
 }
 
 .boxlogin .email input,
@@ -719,6 +722,7 @@ footer .politic a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 .boxlogin .lembrar h5 {
