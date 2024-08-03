@@ -10,7 +10,7 @@
 body {
     background: #fff;
     padding: 0;
-    
+
 }
 
 /* começo topbar */
@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     text-align: center;
     position: relative;
-    z-index: 10; 
+    z-index: 10;
 }
 
 .topbar .bemvnd {
@@ -91,7 +91,7 @@ body {
     }
 }
 
-.testenav{
+.testenav {
     display: grid;
 }
 
@@ -101,8 +101,8 @@ body {
     height: 80px;
     display: flex;
     background-color: #00BFFF;
-    position: relative; 
-    z-index: 10; 
+    position: relative;
+    z-index: 10;
     align-items: center;
     justify-content: space-between;
 }
@@ -138,8 +138,8 @@ body {
 }
 
 #pesquisa_lupa {
-    display: none; 
-    padding: 5px 30px 5px 5px; 
+    display: none;
+    padding: 5px 30px 5px 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -152,7 +152,7 @@ body {
     cursor: pointer;
     color: #ccc;
     font-size: 16px;
-    display: none; 
+    display: none;
 }
 
 .dropdown-menu {
@@ -239,11 +239,13 @@ body {
 /* começo carrossel */
 .carrossel {
     width: 100%;
-    margin: 0; 
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    position: relative; /* Mantém a posição no fluxo do documento */
-    z-index: 5; /* Ajustado para garantir que fique abaixo da navbar */
+    position: relative;
+    /* Mantém a posição no fluxo do documento */
+    z-index: 5;
+    /* Ajustado para garantir que fique abaixo da navbar */
 }
 
 .container-slider {
@@ -262,7 +264,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 330px; 
+    height: 330px;
 }
 
 .slider {
@@ -296,7 +298,8 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    z-index: 10; /* Ajusta o z-index para garantir que os botões não fiquem acima de elementos importantes */
+    z-index: 10;
+    /* Ajusta o z-index para garantir que os botões não fiquem acima de elementos importantes */
 }
 
 #voltar-button img,
@@ -453,9 +456,10 @@ body {
 }
 
 @media (max-width: 768px) {
-    .sobretech{
+    .sobretech {
         padding-top: 100px;
     }
+
     .sobretech .sobreValores {
         display: block;
     }
@@ -583,7 +587,8 @@ footer .politic a:hover {
     line-height: 2.5rem;
 }
 
-.testetudo .contato input, textarea{
+.testetudo .contato input,
+textarea {
     width: 100%;
     max-width: 300px;
     height: 2rem;
@@ -646,7 +651,7 @@ footer .politic a:hover {
     border-radius: 10px;
 }
 
-.testetudo .todasinfo{
+.testetudo .todasinfo {
     padding-top: 50px;
 }
 
@@ -703,7 +708,8 @@ footer .politic a:hover {
 }
 
 .boxlogin .email,
-.boxlogin .senha, .user{
+.boxlogin .senha,
+.user {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -711,7 +717,7 @@ footer .politic a:hover {
 }
 
 .boxlogin .email input,
-.boxlogin .senha input, 
+.boxlogin .senha input,
 .user input {
     width: 100%;
     height: 35px;
@@ -828,7 +834,7 @@ footer .politic a:hover {
 
 .product-box {
     border-radius: 10px;
-    box-shadow: 0 0 15px rgb(0, 0, 0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #E4E4E4;
     text-align: center;
     padding: 20px;
@@ -839,6 +845,7 @@ footer .politic a:hover {
 .product-box:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px #000;
+    transition: 0.5s ease;
 }
 
 .product-box img {
@@ -884,14 +891,14 @@ footer .politic a:hover {
     max-width: 700px;
 }
 
-.product-box {
+/* .product-box {
     background-color: #f9f9f9;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1 1 30%;
     box-sizing: border-box;
-}
+} */
 
 .close-button {
     width: 65px;
@@ -905,6 +912,7 @@ footer .politic a:hover {
     margin-top: 10px;
     position: relative;
 }
+
 #carrinho-section {
     position: fixed;
     top: 20%;
@@ -954,4 +962,121 @@ footer .politic a:hover {
     .products .navegaProduct {
         width: 350px;
     }
+}
+
+
+/* produtos individuais html */
+/* rebitadeira Hidropneumarica */
+.sectionProduto {
+    display: flex;
+    width: 90%;
+    padding: 100px;
+    gap: 100px;
+}
+
+.imgProduto .fundoImagemprod {
+    width: 480px;
+    height: 380px;
+    background-color: #E4E4E4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.imgProduto img {
+    width: 350px;
+    height: 325px;
+}
+
+.acoesProduto {
+    width: 70%;
+    height: 380px;
+}
+
+.acoesProduto .comparEfav {
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: baseline;
+    text-align: center;
+    display: flex;
+    gap: 40px;
+    padding-top: 100px;
+}
+
+.comparEfav button {
+    width: 250px;
+    padding: 10px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.comparEfav button:hover {
+    background-color: #0056b3;
+    transition: 0.7s ease-in-out;
+    transform: scale(1.05);
+}
+
+.comparEfav .favoritar {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.comparEfav .favoritar:hover {
+    background-color: #0056b3;
+    transition: 0.7s ease-in-out;
+    transform: scale(1.05);
+}
+
+.sectionProduto .estoqueEctt {
+    width: 100%;
+    padding-top: 100px;
+}
+
+.sectionProduto .estoqueEctt h5 {
+    padding-top: 20px;
+}
+
+.infoDoProduto{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.infoDoProduto .textosobre{
+    width: 90%;
+    height: auto;
+    padding: 50px;
+    background-color: #E4E4E4;
+    border-radius: 15px;
+}
+
+.prodsRelacionados{
+    padding-top: 50px;
+    width: 90%;
+    height: 400px;
+    align-items: center;
+    padding: 30px;
+    justify-content: center;
+}
+
+.prodsRelacionados .produtossrelc{
+    padding: 25px;
+}
+
+.prodsRelacionados h2{
+    padding-top: 20px;
 }
