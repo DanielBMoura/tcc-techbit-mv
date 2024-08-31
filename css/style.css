@@ -111,7 +111,7 @@ body {
     width: 150px;
     height: 5px;
     display: flex;
-    padding-left: 160px;
+    padding-left: 16z0px;
     align-items: center;
     justify-content: center;
 }
@@ -664,6 +664,13 @@ textarea {
 .testetudo .todasinfo .info-item img {
     margin-right: 10px;
 }
+.map-container h2{
+    text-align: center;
+    padding-top: 15px;
+}
+.map-container iframe{
+    padding-top: 10px;
+}
 
 /* login e cadastro HTML */
 /* começo login e cadastro */
@@ -809,7 +816,7 @@ textarea {
     background-color: #E4E4E4;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 15px #000000;
+    box-shadow: 0 0 15px #000000;;
 }
 
 .products .navegaProduct h3 {
@@ -820,19 +827,47 @@ textarea {
 .products .navegaProduct .prods {
     padding-top: 20px;
     padding-left: 20px;
-    gap: 50px;
 }
+
 
 .products .navegaProduct .prods a {
     color: #000;
+    
 }
 
+/* Estado inicial: elementos escondidos */
+.rebiteclasses, 
+.manualaclasses, 
+.hidrocalsses {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Quando ocorre o hover sobre os elementos pais, os filhos aparecem */
+.products .navegaProduct .prods .rebiti:hover .rebiteclasses,
+.products .navegaProduct .prods .bitadeiraMa:hover .manualaclasses,
+.products .navegaProduct .prods .bitadeirahi:hover .hidrocalsses {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    margin-left: 20px;
+}
+
+/* Estilo padrão para links dentro de prods */
+.products .navegaProduct .prods a {
+    color: #000;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Estilo hover para os links, com transição suave na cor */
 .products .navegaProduct .prods a:hover {
     color: #007bff;
-    transition: 0.2s ease-in-out;
 }
 
-.product-box {
+/* .product-box {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #E4E4E4;
@@ -840,6 +875,16 @@ textarea {
     padding: 20px;
     width: 210px;
     height: 273;
+} */
+
+.product-box {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #1E1E1E;
+    flex: 1 1 30%;
+    box-sizing: border-box;
 }
 
 .product-box:hover {
@@ -891,14 +936,6 @@ textarea {
     max-width: 700px;
 }
 
-/* .product-box {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1 1 30%;
-    box-sizing: border-box;
-} */
 
 .close-button {
     width: 65px;
@@ -939,6 +976,7 @@ textarea {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 90%;
 }
 
 #fechar-carrinho:hover {
@@ -983,11 +1021,23 @@ textarea {
     align-items: center;
     text-align: center;
     border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+#imageProd{
+    overflow: hidden;
 }
 
 .imgProduto img {
-    width: 350px;
-    height: 325px;
+    width: 250px;
+    height: 250px;
+}
+
+#imageProd1{
+    object-fit: cover;
+    transform-origin: center center;
+    padding: 15px;
 }
 
 .acoesProduto {
@@ -1075,8 +1125,36 @@ textarea {
 
 .prodsRelacionados .produtossrelc{
     padding: 25px;
+    padding-left: 50px;
 }
 
 .prodsRelacionados h2{
     padding-top: 20px;
+    padding-left: 50px;
 }
+
+.sectionProduto .maisimgs{
+    height: 80px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.sectionProduto .maisimgs img{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.sectionProduto .maisimgs img:hover{
+    border-radius: 10px;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+
+

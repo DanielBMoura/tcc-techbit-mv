@@ -236,3 +236,23 @@ document.getElementById('close-btn').addEventListener('click', function() {
     input.style.display = 'none'; // Esconde o campo de entrada
     closeBtn.style.display = 'none'; // Esconde o botão de fechar
 });
+
+
+// zom nos produtos individuais
+
+const box = document.getElementById("imageProd");
+const img = document.getElementById("imageProd1");
+
+box.addEventListener("mousemove", (e) => {
+    const x = e.clientX - e.target.offsetLeft;
+    const y = e.clientY - e.target.offsetTop;
+
+    img.style.transformOrigin = `${x}px ${y}px`;
+    img.style.transform = "scale(1.5)";
+});
+
+box.addEventListener("mouseleave", () => {
+    img.style.transformOrigin = "center center";
+    img.style.transform = "scale(1)";
+});
+
