@@ -1,0 +1,102 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<!-- Topbar -->
+<div class="topbar">
+    <div class="logo">
+        <a href="/Admin"><h2>TECHBIT-MV</h2></a>
+    </div>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Procure aqui">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div id="resultadosAdmin" style="display: none;"></div>
+
+    <!-- <i class="fas fa-bell"></i> -->
+    <div class="userAdmin">
+        <img src="/icons/userAdmin.png" alt="Usuário">
+    </div>
+</div>
+
+<!-- Personalizar -->
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="/Admin">
+                <i class="fas fa-home"></i>
+                <div>Home</div>
+            </a>
+        </li>
+            
+        <li>
+            <a href="/Admin/Usuarios">
+                <i class="fas fa-users"></i>
+                <div>Usuários</div>
+            </a>
+        </li>
+    
+        <li>
+            <a href="/Admin/Produtos">
+                <i class="fas fa-box"></i>
+                <div>Produtos</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Categorias">
+                <i class="fas fa-tags"></i>
+                <div>Categorias</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/SubCategorias">
+                <i class="fas fa-cogs"></i>
+                <div>Subcategorias</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Postagens">
+                <i class="fas fa-pen"></i>
+                <div>Postagens</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Categorias-Blog">
+                <i class="fas fa-blog"></i>
+                <div>Categorias Blog</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Orcamentos">
+                <i class="fas fa-file-invoice"></i>
+                <div>Orçamentos</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Pedidos">
+                <i class="fas fa-box-open"></i>
+                <div>Pedidos</div>
+            </a>
+        </li>
+        <li>
+            <a href="/Admin/Newsletter">
+                <i class="fas fa-newspaper"></i>
+                <div>Newsletter</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<% if (success_msg) { %>
+    <h1 style="color: greenyellow;">
+        <%= success_msg %>
+    </h1>
+    <% } %>
+
+        <% if (error_msg) { %>
+            <h1 style="color: red;">
+                <%= error_msg %>
+            </h1>
+            <% } %>

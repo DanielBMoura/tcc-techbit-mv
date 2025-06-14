@@ -1,0 +1,34 @@
+<div class="navegaProduct">
+    <h3>Conheça nossos produtos</h3>
+
+    <div class="prods" id="prodsContent">
+        <% if (categorias && categorias.length > 0) { %>
+            <% categorias.forEach(categoria => { %>
+                <div class="categoria">
+                    <a href="/Produtos/<%= categoria.slug_categoria %>" class="show-categoria">
+                        <img src="/icons/icons8-flecha-50.png" alt="" width="15px" height="15px">
+                        <%= categoria.nome_categoria %>
+                    </a>
+
+                    <% if (categoria.subcategorias && categoria.subcategorias.length > 0) { %>
+                        <div class="subcategorias">
+                            <ul>
+                                <% categoria.subcategorias.forEach(subcategoria => { %>
+                                    <li>
+                                        <a href="/Produtos/<%= categoria.slug_categoria %>/<%= subcategoria.slug_subCategoria %>" class="show-subcategoria">
+                                            <%= subcategoria.nome_subCategoria %>
+                                        </a>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <p>Sem subcategorias disponíveis</p>
+                    <% } %>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Nenhuma categoria disponível.</p>
+        <% } %>
+    </div>
+</div>

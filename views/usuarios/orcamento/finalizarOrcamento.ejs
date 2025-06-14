@@ -1,0 +1,34 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header') %>
+<!-- Cabeçalho --><body>
+
+    <div class="orc-container">
+        <%- include('../../partials/msg') %>
+        <%- include('../../partials/usuario-navbar') %>
+
+        <div class="orc-header">
+            <h1>Enviaremos o orçamento para o administrador</h1>
+            <h2>O email que receberá a resposta será:</h2>
+        </div>
+
+        <div class="orc-content">
+            <section class="orc-email-section">
+                <% if (email_usuario) { %>
+                    <p class="orc-email-display"><%= email_usuario %></p>
+                <% } else { %>
+                    <p class="orc-email-message">Nenhum email cadastrado</p>
+                <% } %>
+            </section>
+
+            <section class="orc-form-section">
+                <form action="/Enviar-email" method="POST" id="emailForm">
+                    <input type="hidden" name="produtos" value='<%= JSON.stringify(produtos) %>'>
+                    <button type="submit" class="orc-btn">Enviar email</button>
+                </form>
+                <button onclick="history.back()" class="orc-back-btn">Voltar</button>
+            </section>
+        </div>
+    </div>
+
+    <%- include('../../partials/usuario-footer') %>
+</body>

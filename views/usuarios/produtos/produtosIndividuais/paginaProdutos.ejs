@@ -1,0 +1,98 @@
+<!-- Cabeçalho -->
+<%- include('../../../partials/usuario-header') %>
+
+<body>
+
+    <!-- Navbar -->
+    <%- include('../../../partials/msg') %>
+    <%- include('../../../partials/usuario-navbar') %>
+
+    <%- include('../../../partials/numCarrinho') %>
+
+    <%- include('../../../partials/carrinho') %>
+    
+        <hr>
+
+        <!-- começo parte produto -->
+        <div class="sectionProduto">
+            <div class="imgProduto">
+                <div class="fundoImagemprod" id="imageProd">
+                    <img src="<%= imagemPrincipal %>" id="imageProd1">
+                </div>
+
+                <div class="maisimgs">
+                    <% imagens.forEach(function(imagem, index) { %>
+                        <img src="<%= imagem %>" alt="Imagem do Produto" class="miniatura" id="img<%= index %>" onclick="trocarImagem('<%= imagem %>')">
+                    <% }) %>
+                </div>
+
+            </div>
+            <div class="acoesProduto">
+                <h2><%= produto.nome_produto %></h2>
+                <hr>
+                <div class="comparEfav">
+                    <form action="/Adicionar-Ao-Carrinho" id="addToCartForm" method="post" style="display: none;">
+                        <input type="hidden" name="id_produto" value="<%= produto.id_produto %>">
+                        <input type="hidden" name="quantidade_produto" id="quantidade_produto">
+                        <button>Adicionar ao carrinho</button>
+                    </form>
+
+                    <button id="adicionarCarrinhoBtn">Adicionar ao carrinho</button>
+
+                    <!-- <a href="#">
+                        <div class="favoritar">
+                            <img src="../../../icons/icons8-coração-50.png" alt="favorito" width="35px" height="">
+                        </div>
+                    </a> -->
+                </div>
+                <div class="estoqueEctt">
+                    <% if (produto.estoque_produto > 0) { %>
+                        <h4>Estoque: Disponível</h4>
+                    <% } else { %>
+                        <h4>Estoque: Indisponível</h4>
+                    <% } %>
+                    <h5>Para mais informações entre em contato com: (00) 00000-0000</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="infoDoProduto">
+            <div class="textosobre">
+                <p><%= produto.info_produto %></p>
+            </div>
+        </div>
+
+        <div class="prodsRelacionados">
+            <hr>
+            <h2>Produtos Relacionados</h2>
+            <div class="produtossrelc">
+                <% if (outrosProdutos && outrosProdutos.length > 0) { %>
+                    <% outrosProdutos.forEach(produto => { %>
+                        <div class="product-box">
+                            <img src="<%= produto.primeiraImagem %>" alt="Rebites">
+                            <h3><%= produto.nome_produto %></h3>
+                            <a href="/Produtos/<%= categoria.slug_categoria %>/<%= subCategoria.slug_subCategoria %>/<%= produto.slug_produto %>">
+                                <button>Saiba mais</button>
+                            </a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhum produto relacionado.</p>
+                <% } %>
+            </div>
+        </div>
+
+        <div id="quantidadeModal" style="display: none;">
+            <div class="modal-content">
+                <h3>Quantos produtos você deseja adicionar?</h3>
+                <input type="number" id="quantidade" name="quantidade" min="1" required>
+                <button id="confirmarQuantidade">Confirmar</button>
+                <button id="cancelarQuantidade">Cancelar</button>
+            </div>
+        </div>
+
+    <!-- Rodapé -->
+    <%- include('../../../partials/usuario-footer') %>
+</body>
+
+</html>

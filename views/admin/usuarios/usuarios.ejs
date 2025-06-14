@@ -1,0 +1,38 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <%- include('../../partials/admin-navbar') %>
+    
+    <div class="main">
+        <div class="cards-containerADM">
+            <div class="card">
+                <h2><i class=""></i><%= totalUsuarios %></h2>
+                <p>usuários cadastrados</p>
+                <button id="btnVerUsuarios">Ver todos os usuários</button>
+
+                <a href="/Admin/Usuarios/Criar"><button id="criarUsuarios">Criar usuário Administrador</button></a>
+            </div>
+        </div>
+
+        <div id="listaUsuarios" class="lista-usuarios" style="display: none;">
+            <h3>Lista de Usuários</h3>
+            <div class="usuarios-container">
+                <% if (todosUsuarios && todosUsuarios.length > 0) { %>
+                    <% todosUsuarios.forEach((usuario) => { %>
+                        <div class="usuario-card">
+                            <h3><%= usuario.nome_usuario %></h3>
+                            <p><%= usuario.email_usuario %></p>
+                            <a href="/Admin/Usuarios/<%= usuario.id_usuario %>"><button id="vermaisUsu">Ver mais</button></a>
+                            <hr>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhum usuário cadastrado</p>
+                <% } %>
+            </div>
+        </div>
+        <button id="btnFecharUsuarios" style="display: none;">Fechar</button>
+    </div>
+    <script src="/js/script.js"></script>
+</body>

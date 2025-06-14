@@ -1,0 +1,45 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header', { title: 'Produtos'}) %>
+
+<body>
+
+    <%- include('../../partials/msg') %>
+    <%- include('../../partials/usuario-navbar') %>
+
+    <!-- comeco cabeçalho  -->
+    <%- include('../../partials/numCarrinho') %>
+    
+    <!-- começo navegação de produtos inicial -->
+    <div class="products">
+        
+        <%- include('../../partials/usuario-conheca') %>
+
+        <!-- começo rebitadeira hidro -->
+        <div class="rebiHidro" id="rebiHidro">
+            <div class="product-container">
+                <% if (produtosEmGeral && produtosEmGeral.length > 0) { %>
+                    <% produtosEmGeral.forEach(produto => { %>
+                        <div class="product-box">
+                            <img src="<%= produto.primeiraImagem %>" alt="Imagem do Produto">
+                            <h3><%= produto.nome_produto %></h3>
+                            <a href="/Produtos/<%= categoria.slug_categoria %>/<%= subCategoria.slug_subCategoria %>/<%= produto.slug_produto %>">
+                                <button>Saiba mais</button>
+                            </a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhum produto disponível.</p>
+                <% } %>
+            </div> 
+            <a href="/Produtos/<%= categoria.slug_categoria %>"><button class="close-button">Fechar</button></a>
+        </div>
+    </div>
+
+    <%- include('../../partials/carrinho') %>
+
+    <!-- Rodapé -->
+    <%- include('../../partials/usuario-footer') %>
+
+</body>
+
+</html>

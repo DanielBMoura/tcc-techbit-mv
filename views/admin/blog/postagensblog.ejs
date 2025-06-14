@@ -1,0 +1,47 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+
+    <div class="geralHomeadm">
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+
+            <% if (postagens.length > 0) { %>
+                <div class="product-container">
+                    <% for (i = 0; i < postagens.length; i++) { %>
+                        <div class="product-boxAdm">
+                            <h3><%= postagens[i].titulo_postagemBlog %></h3>
+                            <p class="descAdm">Descrição: <%= postagens[i].descricao_postagemBlog %></p>
+                            <h5>Data de criação: <%= postagens[i].data_postagemBlog %></h5>
+                            <h5>Categoria: <%= postagens[i].categoriaBlog.nome_categoriaBlog %></h5>
+
+                            <a href="/Admin/Postagens/<%= postagens[i].slug_postagemBlog %>">
+                                <button class="btn-editar">Editar Postagem</button>
+                            </a>
+
+                            <form action="/Admin/Postagens/Deletar" method="POST" id="deletarPostagem-form">
+                                <input type="hidden" name="id" value="<%= postagens[i].id_postagemBlog %>">
+                                <button type="submit" class="btn-deletar">Deletar Postagem</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p>Nenhuma postagem cadastrada</p>
+            <% } %>
+
+            <hr>
+
+            <div class="addNovobtn">
+                <a href="/Admin/Postagens/Adicionar">
+                    <button>Adicionar postagem</button>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

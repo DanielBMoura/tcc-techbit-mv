@@ -1,0 +1,64 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="orcamento-detalhes-container">
+                <div class="orcamento-detalhes-card">
+                    <div class="icon-placeholder">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+
+                    <p><strong>Número do Pedido:</strong> <%= dadosObjeto.numero_pedido %></p>
+                    <p><strong>Data:</strong> <%= new Date(dadosObjeto.data_pedido).toLocaleDateString('pt-BR') %></p>
+
+                    <h3>Usuário</h3>
+                    <p><strong>Nome:</strong> <%= dadosObjeto.nome_usuario %></p>
+                    <p><strong>Email:</strong> <%= dadosObjeto.email_usuario %></p>
+                    <p><strong>Telefone: </strong><%= dadosObjeto.telefone_usuario %></p>
+
+                    <h3>Endereço</h3>
+                    <p><strong>Rua:</strong> <%= dadosObjeto.endereco_usuario.rua %> - <%= dadosObjeto.endereco_usuario.numero %></p>
+                    <p><strong>Bairro:</strong> <%= dadosObjeto.endereco_usuario.bairro %></p>
+                    <p><strong>Cidade:</strong> <%= dadosObjeto.endereco_usuario.cidade %> - <%= dadosObjeto.endereco_usuario.uf %></p>
+                    <p><strong>CEP:</strong> <%= dadosObjeto.endereco_usuario.cep %></p>
+
+                    <% if (dadosObjeto.endereco_usuario.complemento) { %>
+                        <p><strong>Complemento:</strong> <%= dadosObjeto.endereco_usuario.complemento %></p>
+                    <% } %>
+
+                    <h3>Pedido</h3>
+                    <p><strong>Valor:</strong> R$ <%= Number(dadosObjeto.valor_total_pedido).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+                    <% dadosObjeto.itensPedido.forEach(item => { %>
+                        <p><strong>Produto:</strong> <%= item.nome_produto %> - <strong>Quantidade:</strong> <%= item.quantidade %></p>
+                    <% }) %>
+
+                    <form action="/Admin/atualizar-status" id="formAtualizarStatus" method="POST">
+                        <input type="hidden" name="numero_pedido" value="<%= dadosObjeto.numero_pedido %>">
+                        <h3>Status: </h3>
+                        <select name="status" id="status">
+                            <% statusOpcoes.forEach(option => { %>
+                                <option 
+                                    value="<%= option %>" 
+                                    <%= option === statusAtual ? 'selected' : '' %>
+                                >
+                                    <%= option %>
+                                </option>
+                            <% }) %>
+                        </select>
+                        <button class="btn-acoes">Confirmar</button>
+                    </form>
+
+                    <a href="/Admin/Pedidos/<%= slug %>" class="orcamento-btn-voltar">Voltar</a>
+                </div>
+            </div>
+            <hr>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

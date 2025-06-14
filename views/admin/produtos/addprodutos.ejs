@@ -1,0 +1,64 @@
+<%- include('../../partials/admin-header') %>
+
+    <%- include('../../partials/msg') %>
+
+        <body class="produtoAdm">
+
+            <div class="geralHomeadm">
+                <!-- Mensagens do sistema -->
+
+
+                <!-- Navbar lateral -->
+                <%- include('../../partials/admin-navbar') %>
+
+                    <!-- Conteúdo principal -->
+                    <section class="area-produtos">
+                        <div class="container-novo-produto">
+                            <!-- Seção de conteúdo (formulário) Novo Produto -->
+                            <div class="conteudo-novo-produto">
+                                <form action="/Admin/Produtos/Novo" method="POST" enctype="multipart/form-data"
+                                    id="produto-form">
+                                    <label for="nome">Nome: </label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
+
+                                    <label for="slug">Slug:</label>
+                                    <input type="text" id="slug" name="slug" placeholder="Slug do Produto" required>
+
+                                    <label for="subcategoria">Sub Categoria:</label>
+                                    <select name="subcategoria" style="width: 200px;" required>
+                                        <% if (subcategoria.length> 0) { %>
+                                            <% for(i=0; i < subcategoria.length; i++){ %>
+                                                <option value="<%= subcategoria[i].id_subCategoria %>">
+                                                    <%= subcategoria[i].nome_subCategoria %>
+                                                </option>
+                                                <% } %>
+                                                    <% } else { %>
+                                                        <option value=""></option>
+                                                        <% } %>
+                                    </select>
+
+                                    <label for="info">Info do produto:</label>
+                                    <textarea rows="10" cols="50" name="info" placeholder="Info do produto"
+                                        required></textarea>
+
+                                    <label for="image">Imagens:</label>
+                                    <input type="file" id="imagens" name="imagens" accept="image/*"
+                                        style="display: none;" multiple>
+                                    <button type="button" id="botaoUpload">Escolher Imagens</button>
+                                    <div id="preview-container-img"></div>
+
+                                    <button type="submit" class="btn-adicionar">Criar Produto</button>
+                                </form>
+
+                                <div class="addNovobtn">
+                                    <a href="/Admin/Produtos" class="addNovobtn">
+                                        <button>Voltar</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </div>
+
+            <script src="/js/script.js"></script>
+        </body>

@@ -1,0 +1,36 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header', { title: 'Home' }) %>
+
+<body>
+    
+    <%- include('../../partials/msg') %>
+    <!-- Navbar -->
+    <%- include('../../partials/usuario-navbar') %>
+
+
+    <div class="categories-container">
+        <h2 class="categories-title">Categorias do Blog</h2>
+        <hr class="divider">
+        
+        <% if (categorias.length > 0) { %>
+            <div class="categories-list">
+                <% for(i=0; i < categorias.length; i++){ %>
+                    <a href="/Categorias-Blog/<%= categorias[i].slug_categoriaBlog %>" class="category-item">
+                        <h4><%= categorias[i].nome_categoriaBlog %></h4>
+                    </a>
+                <% } %>
+            </div>
+        <% } else { %>
+            <p class="no-categories-message">Nenhuma categoria cadastrada no momento. Volte em breve!</p>
+        <% } %>
+    </div>
+        <div class="pag-catblog">
+    <a href="/Blog" class="category-item">
+        <h4>Voltar></h4>
+    </a>
+    </div>
+    <%- include('../../partials/usuario-footer') %>
+
+</body>
+
+</html>

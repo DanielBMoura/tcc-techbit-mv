@@ -1,0 +1,63 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body class="produtoAdm">
+    <!-- Título da página -->
+
+    <div class="geralHomeadm">
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="conteudo-novo-produto">
+            <form action="/Admin/SubCategorias/Novo" method="POST" enctype="multipart/form-data" id="addSubCategoria-form">
+                
+                <!-- Nome da SubCategoria -->
+                <div class="campo-novo">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome da SubCategoria" required>
+                </div>
+
+                <!-- Slug da SubCategoria -->
+                <div class="campo-novo">
+                    <label for="slug">Slug: </label>
+                    <input type="text" name="slug" id="slug" placeholder="Slug da SubCategoria" required>
+                </div>
+
+                <!-- Categoria da SubCategoria -->
+                <div class="campo-novo">
+                    <label for="categoria">Categoria:</label>
+                    <select name="id" required>
+                        <% if (categoria.length > 0) { %>
+                            <% for(i=0; i < categoria.length; i++){ %>
+                            <option value="<%= categoria[i].id_categoria %>"><%= categoria[i].nome_categoria %></option>
+                            <% } %>
+                        <% } else { %>
+                            <option value="">Nenhuma Categoria cadastrada</option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <!-- Imagem da SubCategoria -->
+                <div class="campo-novo">
+                    <label for="image">Imagem:</label>
+                    <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;">
+                    <button type="button" id="uploadButton">Escolher Imagem</button>
+                    <img id="preview-image" alt="Pré-visualização da imagem da subcategoria" style="display: none; max-width: 200px; margin-top: 10px;">
+                </div>
+
+                <!-- Botão Criar SubCategoria -->
+                <div class="campo-novo">
+                    <button type="submit">Criar SubCategoria</button>
+                </div>
+            </form>
+
+            <!-- Link Voltar -->
+            <div class="addNovobtn">
+                <a href="/Admin/SubCategorias" class="addNovobtn"><button>Voltar</button></a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

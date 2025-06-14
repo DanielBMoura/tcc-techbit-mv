@@ -1,0 +1,108 @@
+<!-- Cabeçalho -->
+<%- include('../partials/usuario-header', { title: 'Cadastro' }) %>
+
+<body>
+    <h4 id="mensagem"></h4>
+    <!-- Navbar -->
+    <%- include('../partials/usuario-navbar') %>
+
+<!-- começo cadastro -->
+<div class="login">
+    <div class="boxlogin">
+        <div class="titlle">
+            <h2>USUÁRIO</h2>
+        </div>
+        <form action="/cadastro-form" method="POST" class="formulario" id="cadastro-form">
+            <div class="dados-pessoais">
+                <h3>Dados pessoais</h3>
+                <h5>Nome de usuário:<br></h5>
+                <div class="user">
+                    <input type="text" name="nome" placeholder="Digite seu nome" required>
+                </div>
+                <h5>Email:<br></h5>
+                <div class="email">
+                    <input type="email" name="email" placeholder="Digite seu E-mail" required>
+                </div>
+                <h5>Senha:<br></h5>
+                <div class="senha">
+                    <input type="password" id="campoSenha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <h5>Confirmar Senha:<br></h5>
+                <div class="senha">
+                    <input type="password" id="campoConfirmarSenha" name="confirmarSenha" placeholder="Repita a senha" required>
+                </div>
+                <div class="telefone-nascimento">
+                    <div class="telefoneDiv">
+                        <h5>DDD + Telefone:<br></h5>
+                        <div class="telefone">
+                            <input type="tel" id="telefone" name="telefone" placeholder="(__) _____-____" maxlength="14" oninput="formatarTelefone(this)" required> 
+                        </div>
+                    </div>
+                    <div class="nascimentoDiv">
+                        <h5>Data de Nascimento</h5>
+                        <div class="dataNascimento">
+                            <input type="date" name="dataNascimento" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="lembrar">
+                    <h5><input type="checkbox" id="botaoMostrarSenha" onclick="mostrarSenha()">Mostrar senha</h5>
+                </div>
+            </div>
+            <div class="endereco">
+                <h3>CEP</h3>
+                <div class="cep">
+                    <input type="text" name="cep" id="cep" placeholder="Digite seu cep" oninput="formatarCEP(this)" required>
+                </div>
+                <h3>Endereço</h3>
+                <h5>Rua/Avenida:<br></h5>
+                <div class="rua">
+                    <input type="text" name="rua" id="rua" readonly>
+                </div>
+                <div class="numero-complemento">
+                    <div class="numeroDiv">
+                        <h5>Número:<br></h5>
+                        <div class="numero">
+                            <input type="text" name="numero" required>
+                        </div>
+                    </div>
+                    <div class="complementoDiv">
+                        <h5>Complemento(Opcional):<br></h5>
+                        <div class="complemento">
+                            <input type="text" name="complemento" placeholder="Complemento">
+                        </div>
+                    </div>
+                </div>
+                <h5>Bairro:<br></h5>
+                <div class="bairro">
+                    <input type="text" name="bairro" id="bairro" readonly>
+                </div>
+                <div class="numero-complemento">
+                    <div class="numeroDiv">
+                        <h5>Cidade:<br></h5>
+                        <div class="cidade">
+                            <input type="text" name="cidade" id="cidade" readonly>
+                        </div>
+                    </div>
+                    <div class="complementoDiv">
+                        <h5>UF:<br></h5>
+                        <div class="uf">
+                            <input type="text" name="uf" id="uf" readonly>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="botoes">
+                <div class="acessar">
+                    <button type="submit">Criar conta</button>
+                </div>
+                <div class="voltar">
+                    <a href="/Login"><button type="button">Voltar</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/js/script.js" defer></script>
+</body>
+</html>

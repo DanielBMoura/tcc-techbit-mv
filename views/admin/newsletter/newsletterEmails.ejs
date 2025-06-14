@@ -1,0 +1,23 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+        <!-- Navbar -->
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <div class="espaco">
+            <% emails.forEach((email) => { %>
+                <h3><%= email.assunto_emails_newsletter %></h3>
+                <p><%= email.mensagem_emails_newsletter %></p>
+                <h3><%= new Date(email.data_envio_newsletter).toLocaleDateString('pt-BR') %></h3>
+                <hr>
+            <% }) %>
+        </div>
+    
+        <a href="/Admin/Newsletter" class="newsletter-btn-voltar">Voltar</a>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

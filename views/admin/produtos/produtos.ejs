@@ -1,0 +1,50 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+
+    <div class="geralHomeadm">
+        <!-- Mensagens -->
+
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <% if (produtos.length > 0) { %>
+                <div class="product-container">
+                    <% for (let i = 0; i < produtos.length; i++) { %>
+                        <div class="product-boxAdm">
+                            <img src="<%= produtos[i].primeiraImagem %>" alt="Imagem do Produto">
+                            <h3><%= produtos[i].nome_produto %></h3>
+
+                            <a href="/Admin/Produtos/<%= produtos[i].nomeSubCategoriaUrl %>/<%= produtos[i].slug_produto %>/<%= produtos[i].idCategoria %>">
+                                <button>Editar Produto</button>
+                            </a>
+
+                            <form action="/Admin/Produtos/Deletar" method="POST" class="deletarProduto-form">
+                                <input type="hidden" name="id" value="<%= produtos[i].id_produto %>">
+                                <button type="submit">Deletar Produto</button>
+                            </form>
+
+                            <input class="inputEstoque" id="estoque-<%= produtos[i].id_produto %>" type="number"
+                                   value="<%= produtos[i].estoque_produto %>"
+                                   onchange="atualizarEstoque('<%= produtos[i].id_produto %>')">
+
+                            <p class="descAdm"><%= produtos[i].info_produto %></p>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p>Nenhum produto cadastrado.</p>
+            <% } %>
+
+            <hr>
+
+            <div class="addNovobtn">
+                <a href="/Admin/Produtos/Adicionar"><button>Adicionar novo produto</button></a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

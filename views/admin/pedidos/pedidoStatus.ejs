@@ -1,0 +1,40 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body class="produtoAdm">
+    <!-- Título da página -->
+
+    <div class="geralHomeadm">
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <% if (pedidosObjeto.length > 0) { %>
+                <div class="product-container">
+                    <% pedidosObjeto.forEach(pedido => { %>
+                        <a href="/Admin/Pedidos/<%= status.slug %>/<%= pedido.numero_pedido %>" class="product-boxAdm card-link">
+                            <div class="icon-placeholder">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <p><strong>Nº Pedido:</strong> <%= pedido.numero_pedido %></p>
+                            <p><strong>Data:</strong> <%= new Date(pedido.data_pedido).toLocaleDateString('pt-BR') %></p>
+                            <p><strong>Usuário:</strong> <%= pedido.nome_usuario %></p>
+                            <p><strong>Status:</strong> <%= status.nome %></p>
+                        </a>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p class="orcamento-mensagem">Nenhum orçamento encontrado para esse status.</p>
+            <% } %>
+
+            <div class="addNovobtn">
+                <a href="/Admin/Pedidos">
+                    <button class="btn-voltar">Voltar</button>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

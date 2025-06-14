@@ -1,0 +1,36 @@
+<!-- Cabeçalho -->
+<%- include('../partials/usuario-header', { title: 'Home' }) %>
+
+<body>
+    
+    <%- include('../partials/msg') %>
+    <!-- Navbar -->
+    <%- include('../partials/usuario-navbar') %>
+
+    <% if (postagens.length > 0) { %>
+        <div class="blog-posts">
+            <% for(i=0; i < postagens.length; i++){ %>
+                <div class="post-box">
+                    <h3><%= postagens[i].titulo_postagemBlog %></h3>
+                    <p><strong>Descrição:</strong><%= postagens[i].descricao_postagemBlog %></p>
+                    <a href="/Postagem/<%= postagens[i].slug_postagemBlog %>"><button>Leia mais</button></a>
+                    <hr>
+                    <small><strong>Categoria:</strong><%= postagens[i].categoriaBlog.nome_categoriaBlog %></small><br>
+                    <small><strong>Data de criação:</strong><%= postagens[i].data_postagemBlog %></small>
+                </div>
+                    <hr>
+            <% } %>
+        </div>
+        <% } else { %>
+        <p>Nenhuma postagem cadastrada</p>
+    <% } %>
+    <div class="categories-link">
+        <a href="/Categorias-Blog" class="categories-btn">Veja todas as Categorias</a>
+    </div>
+
+
+    <%- include('../partials/usuario-footer') %>
+
+</body>
+
+</html>

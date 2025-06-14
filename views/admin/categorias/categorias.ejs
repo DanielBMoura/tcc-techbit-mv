@@ -1,0 +1,46 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body class="produtoAdm">
+    <!-- Título da página -->
+
+    <div class="geralHomeadm">
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <% if (categorias.length > 0) { %>
+                <div class="product-container">
+                    <% for (let i = 0; i < categorias.length; i++) { %>
+                        <div class="product-boxAdm">
+                            <img src="<%= categorias[i].imagem_categoria %>" alt="<%= categorias[i].nome_categoria %>">
+                            <h3><%= categorias[i].nome_categoria %></h3>
+
+                            <a href="/Admin/Categorias/<%= categorias[i].slug_categoria %>">
+                                <button class="btn-editar">Editar Categoria</button>
+                            </a>
+
+                            <form action="/Admin/Categorias/Deletar" method="POST" class="deletarCategoria-form">
+                                <input type="hidden" name="id" value="<%= categorias[i].id_categoria %>">
+                                <button type="submit" class="btn-deletar">Deletar Categoria</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p class="msg-sem-categorias">Nenhuma categoria registrada.</p>
+            <% } %>
+
+            <hr>
+
+            <div class="addNovobtn">
+                <a href="/Admin/Categorias/Adicionar">
+                    <button class="btn-adicionar">Adicionar nova categoria</button>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

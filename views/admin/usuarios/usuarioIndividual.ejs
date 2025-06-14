@@ -1,0 +1,40 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="orcamento-detalhes-container">
+                <div class="orcamento-detalhes-card">
+                    <div class="icon-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <p><strong>Nome:</strong> <%= usuario.nome_usuario %></p>
+                    <p><strong>E-mail:</strong> <%= usuario.email_usuario %></p>
+                    <p><strong>Telefone:</strong> <%= telefoneFormatado %></p>
+                    <p><strong>Data de Nascimento:</strong> <%=  new Date(usuario.data_nascimento_usuario).toLocaleDateString('pt-BR') %></p>
+                    <p><strong>Administrador:</strong> <%= usuario.eAdmin == 1 ? "Sim" : "Não" %></p>
+
+                    <h3>Endereço</h3>
+                        <p><strong>Rua:</strong> <%= endereco.rua %> - <%= usuario.numero %></p>
+                        <p><strong>Bairro:</strong> <%= endereco.bairro %></p>
+                        <p><strong>Cidade:</strong> <%= endereco.cidade %> - <%= endereco.uf %></p>
+                        <p><strong>CEP:</strong> <%= cepFormatado %></p>
+
+                    <% if (usuario.complemento) { %>
+                        <p><strong>Complemento:</strong> <%= usuario.complemento %></p>
+                    <% } %>
+
+                    <a href="/Admin/Usuarios" class="orcamento-btn-voltar"><button>Voltar</button></a>
+                </div>
+            </div>
+            <hr>
+        </section>
+
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

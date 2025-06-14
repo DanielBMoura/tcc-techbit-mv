@@ -1,0 +1,35 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+
+<body>
+
+    <div class="geralHomeadm">
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="container-novo-produto">
+                <div class="conteudo-novo-produto">
+                    <form action="/Admin/CategoriasBlog/Novo" method="POST" id="categoriaBlog-form">
+                        <label for="nome">Nome: </label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome da categoria" required>
+                
+                        <label for="slug">Slug: </label>
+                        <input type="text" id="slug" name="slug" placeholder="Slug da categoria" required>
+                
+                        <button type="submit">Criar categoria</button>
+                    </form>
+
+                    <div class="addNovobtn">
+                        <a href="/Admin/Categorias-Blog">
+                            <button>Voltar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

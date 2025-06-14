@@ -1,0 +1,89 @@
+<%- include('../../partials/admin-header') %>
+    <%- include('../../partials/msg') %>
+
+        <body class="produtoAdm">
+
+            <div class="geralHomeadm">
+                <!-- Mensagens do sistema -->
+
+
+                <!-- Navbar lateral -->
+                <%- include('../../partials/admin-navbar') %>
+
+                    <!-- Conteúdo principal -->
+                    <section class="formEdit formulario-contato">
+                        <form action="/Admin/Produtos/Edit" method="POST" enctype="multipart/form-data"
+                            id="editProduto-form">
+                            <input type="hidden" name="id" value="<%= editarProduto.id_produto %>">
+
+                            <div class="campo">
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" id="nome" placeholder="Nome do Produto"
+                                    value="<%= editarProduto.nome_produto %>" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="slug">Slug:</label>
+                                <input type="text" id="slug" name="slug" placeholder="Slug do Produto"
+                                    value="<%= editarProduto.slug_produto %>" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="subcategoria">Sub Categoria:</label>
+                                <select name="subcategoria" required>
+                                    <option value="<%= subCategoriaProduto.id_subCategoria %>" selected>
+                                        <%= subCategoriaProduto.nome_subCategoria %>
+                                    </option>
+                                    <% if (subcategoria.length> 0) { %>
+                                        <% for (let i=0; i < subcategoria.length; i++) { %>
+                                            <option value="<%= subcategoria[i].id_subCategoria %>">
+                                                <%= subcategoria[i].nome_subCategoria %>
+                                            </option>
+                                            <% } %>
+                                                <% } else { %>
+                                                    <option value="">Nenhuma subcategoria cadastrada</option>
+                                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="campo mensagem">
+                                <label for="info">Info do produto:</label>
+                                <textarea rows="10" cols="50" name="info" placeholder="Info do produto"
+                                    required><%= editarProduto.info_produto %></textarea>
+                            </div>
+
+                            <div class="campo">
+                                <label for="image">Imagens:</label>
+                                <input type="hidden" name="imagens_antiga" id="imagens_antiga"
+                                    value="<%= editarProduto.imagens_produto %>">
+                                <input type="file" id="imagens" name="imagens" accept="image/*" style="display: none;"
+                                    multiple>
+                                <button type="button" id="botaoUpload2" class="enviar">Escolher Imagens</button>
+                            </div>
+
+                            <div id="preview-container-img">
+                                <% imagens.forEach((imagem, i)=> { %>
+                                    <div class="image-item"
+                                        style="display: inline-block; position: relative; margin-right: 10px;">
+                                        <img src="<%= imagem %>" style="max-width: 150px; display: block;">
+                                        <button type="button" onclick="removerImagem('<%= i %>')"
+                                            class="enviar">Remover</button>
+                                    </div>
+                                    <% }) %>
+                            </div>
+
+                            <input type="hidden" name="imagens_mantidas" id="imagens_mantidas"
+                                value='<%= JSON.stringify(imagens) %>'>
+                            <button type="submit" class="enviar">Editar Produto</button>
+                        </form>
+
+                        <div class="addNovobtn" id="testeusu">
+                            <a href="/Admin/Produtos" class="addNovobtn">
+                                <button class="enviar">Voltar</button>
+                            </a>
+                        </div>
+                    </section>
+            </div>
+
+            <script src="/js/script.js"></script>
+        </body>

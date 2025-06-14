@@ -1,0 +1,44 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header', { title: 'SubCategorias'}) %>
+
+<body>
+
+    <%- include('../../partials/msg') %>
+    <%- include('../../partials/usuario-navbar') %>
+
+    <%- include('../../partials/numCarrinho') %>
+
+    <!-- começo navegação de produtos inicial -->
+    <div class="products">
+        
+        <%- include('../../partials/usuario-conheca') %>
+
+        <!-- começo rebitadeira hidro -->
+        <div class="rebiHidro" id="rebiHidro">
+            <div class="product-container">
+                <% if (subCategorias && subCategorias.length > 0) { %>
+                    <% subCategorias.forEach(subCategoria => { %>
+                        <div class="product-box">
+                            <img src="<%= subCategoria.imagem_subCategoria %>" alt="Rebites">
+                            <h3><%= subCategoria.nome_subCategoria %></h3>
+                            <a href="/Produtos/<%= categoria.slug_categoria %>/<%= subCategoria.slug_subCategoria %>">
+                                <button>Saiba mais</button>
+                            </a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhuma subCategoria disponível.</p>
+                <% } %>
+            </div>
+            <a href="/Produtos"><button class="close-button">Fechar</button></a>
+        </div>
+    </div>
+
+    <%- include('../../partials/carrinho') %>
+
+    <!-- Rodapé -->
+    <%- include('../../partials/usuario-footer') %>
+
+</body>
+
+</html>

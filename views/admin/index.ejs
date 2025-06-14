@@ -1,0 +1,161 @@
+<%- include('../partials/admin-header') %>
+<%- include('../partials/msg') %>
+<!-- Adiciona o CSS externo -->
+<link rel="stylesheet" href="/css/admin.css">
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+<body>
+    <div class="container">
+
+        <!-- Sidebar -->
+        <%- include('../partials/admin-navbar') %>
+
+        <!-- Conteúdo Principal -->
+        <div class="main">
+
+            <!-- Contêiner de cartões -->
+            <div class="cards-containerADM">
+                <div class="card">
+                    <h2><i class="fas fa-shopping-cart iconADM"></i>    <%= totalPedidos %></h2>
+                    <p>Pedidos</p>
+                </div>
+                <div class="card">
+                    <h2><i class="fas fa-truck iconADM"></i>    <%= produtosEntregues %></h2>
+                    <p>Produtos entregues</p>
+                </div>
+                <div class="card">
+                    <h2><i class="fas fa-dollar-sign iconADM"></i> <%= somaValores %></h2>
+                    <p>Ganhos</p>
+                </div>
+            </div>
+
+            <!-- Contêiner de gráficos -->
+            <div class="graficos-container">
+                <div class="grafico-container linhas">
+                    <canvas 
+                        id="grafico"
+                        data-meses='<%= JSON.stringify(dadosGrafico.meses) %>'
+                        data-valores='<%= JSON.stringify(dadosGrafico.valores) %>'
+                    >
+                    </canvas>
+                </div>
+                <div class="grafico-container pizza">
+                    <canvas 
+                        id="grafico-pizza"
+                        data-labels='<%= JSON.stringify(produtosMaisVendidos.labels) %>'
+                        data-dados='<%= JSON.stringify(produtosMaisVendidos.dados) %>'>
+                    >
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Script dos gráficos -->
+    <script>
+        // Gráfico de Linhas
+
+        const canvas = document.getElementById('grafico')
+        const meses = JSON.parse(canvas.dataset.meses)
+        const valores = JSON.parse(canvas.dataset.valores)
+
+
+        const ctx = canvas.getContext('2d');
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: meses,
+                datasets: [{
+                    label: 'Ganhos mensais',
+                    data: valores,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',   // rgba(0,0,128,0.1)
+                    borderColor: 'rgba(54, 162, 235, 1)', // rgba(0,0,128,1)
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'R$ ' + context.raw.toLocaleString('pt-BR', {
+                                    minimumFractionDigits: 2,
+                                    maximumFractionDigits: 2
+                                })
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'R$ ' + value.toLocaleString('pt-BR')
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Pizza
+
+        const canvasPizza = document.getElementById('grafico-pizza')
+        const labels = JSON.parse(canvasPizza.dataset.labels)
+        const dados = JSON.parse(canvasPizza.dataset.dados)
+
+        const cores = [
+            'rgba(0,123,255,1)',
+            'rgba(108,117,125,1)',
+            'rgba(0,0,128,1)',
+            'rgba(23,162,184,1)',
+            'rgba(0, 86, 179, 1)',
+            'rgba(173, 216, 230, 1)',
+            'rgba(100, 149, 237, 1)',
+            'rgba(73, 80, 87, 1)',
+            'rgba(206, 212, 218, 1)',
+        ]
+
+
+        const ctxPizza = document.getElementById('grafico-pizza').getContext('2d');
+        const pizzaChart = new Chart(ctxPizza, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: dados,
+                    backgroundColor: cores.slice(0, labels.length),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw} unidades`
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>

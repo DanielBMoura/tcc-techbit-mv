@@ -1,0 +1,54 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+
+<body>
+    <div class="geralHomeadm">
+
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="container-novo-produto">
+                <div class="conteudo-novo-produto">
+                    <form action="/Admin/Postagens/Nova" method="POST" id="postagemBlog-form">
+                        <label for="titulo">Título: </label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Título da Postagem" required>
+                
+                        <label for="slug">Slug: </label>
+                        <input type="text" id="slug" name="slug" placeholder="Slug da Postagem" required>
+
+                        <label for="descricao">Descrição: </label>
+                        <input type="text" id="descricao" name="descricao" placeholder="Descrição da Postagem" required>
+
+                        <label for="conteudo">Conteúdo: </label>
+                        <textarea name="conteudo" id="conteudo" required></textarea>
+
+                        <label for="categoria">Categoria: </label>
+                        <select name="categoria" id="categoria" required>
+                            <% if (categoriasPostagens.length > 0) { %>
+                                <% for (i = 0; i < categoriasPostagens.length; i++) { %>
+                                    <option value="<%= categoriasPostagens[i].id_categoriaBlog %>">
+                                        <%= categoriasPostagens[i].nome_categoriaBlog %>
+                                    </option>
+                                <% } %>
+                            <% } else { %>
+                                <option value="">Nenhuma Categoria registrada</option>
+                            <% } %>
+                        </select>
+                
+                        <button type="submit">Criar Postagem</button>
+                    </form>
+
+                    <div class="addNovobtn">
+                        <a href="/Admin/Postagens">
+                            <button>Voltar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

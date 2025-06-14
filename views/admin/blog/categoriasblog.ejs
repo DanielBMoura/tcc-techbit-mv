@@ -1,0 +1,44 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+
+
+            <% if (categoriasBlog.length > 0) { %>
+                <div class="product-container">
+                    <% for (i = 0; i < categoriasBlog.length; i++) { %>
+                        <div class="product-boxAdm">
+                            <h3><%= categoriasBlog[i].nome_categoriaBlog %></h3>
+                            <h5>Data de criação: <%= categoriasBlog[i].data_categoriaBlog %></h5>
+                            
+                            <a href="/Admin/Categorias-Blog/<%= categoriasBlog[i].slug_categoriaBlog %>">
+                                <button class="btn-editar">Editar Categoria</button>
+                            </a>
+
+                            <form action="/Admin/CategoriasBlog/Deletar" method="POST" id="deletarCategoriaBlog-form">
+                                <input type="hidden" name="id" value="<%= categoriasBlog[i].id_categoriaBlog %>">
+                                <button type="submit" class="btn-deletar">Deletar Categoria</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p>Nenhuma categoria cadastrada</p>
+            <% } %>
+
+            <hr>
+
+            <div class="addNovobtn">
+                <a href="/Admin/Categorias-Blog/Adicionar"><button>Adicionar categoria</button></a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

@@ -1,0 +1,38 @@
+<!-- Cabeçalho -->
+<%- include('../partials/usuario-header', { title: 'Produtos' }) %>
+
+<body>
+    
+    <%- include('../partials/msg') %>
+    <%- include('../partials/usuario-navbar') %>
+
+    <%- include('../partials/numCarrinho') %>
+
+    <!-- começo navegação de produtos inicial -->
+    <div class="products">
+        
+        <%- include('../partials/usuario-conheca') %>
+
+        <div class="produtosBo" id="produtosBo">
+            <% if (categorias && categorias.length > 0) { %>
+                <% categorias.forEach(categoria => { %>
+                    <div class="product-box">
+                        <img src="<%= categoria.imagem_categoria %>" alt="Rebites">
+                        <h3><%= categoria.nome_categoria %></h3>
+                        <a href="/Produtos/<%= categoria.slug_categoria %>"><button id="show-rebites-btn">Ver mais</button></a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>Nenhuma categoria disponível.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include('../partials/carrinho') %>
+
+    <!-- Rodapé -->
+    <%- include('../partials/usuario-footer') %>
+
+</body>
+
+</html>

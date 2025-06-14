@@ -1,0 +1,53 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body class="produtoAdm">
+    <!-- Título da página -->
+
+
+    <div class="geralHomeadm">
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="formEdit formulario-contato">
+                <form action="/Admin/Categorias/Editar" method="POST" enctype="multipart/form-data" id="editCategoria-form">
+                    <input type="hidden" name="id" value="<%= editarCategoria.id_categoria %>">
+
+                    <div class="campo">
+                        <label for="nome">Nome:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome da categoria"
+                            value="<%= editarCategoria.nome_categoria %>" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="slug">Slug:</label>
+                        <input type="text" name="slug" id="slug" placeholder="Slug da categoria"
+                            value="<%= editarCategoria.slug_categoria %>" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="image">Imagem</label>
+                        <input type="hidden" name="imagem_antiga" id="imagem_antiga"
+                            value="<%= editarCategoria.imagem_categoria %>">
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;">
+                        <button type="button" id="uploadButton" class="enviar">Escolher Imagem</button>
+                        <div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+                            <img id="preview-image" src="<%= editarCategoria.imagem_categoria %>"
+                                style="max-width: 150px; display: inline-block;">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-editar">Editar Categoria</button>
+                </form>
+
+                <div class="addNovobtn">
+                    <a href="/Admin/Categorias" class="addNovobtn"><button class="enviar">Voltar</button></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

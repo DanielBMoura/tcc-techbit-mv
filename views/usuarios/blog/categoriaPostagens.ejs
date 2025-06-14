@@ -1,0 +1,41 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header', { title: 'Home' }) %>
+
+<body>
+    
+    <%- include('../../partials/msg') %>
+    <!-- Navbar -->
+    <%- include('../../partials/usuario-navbar') %>
+
+    <div class="category-header">
+        <h1 class="category-title"><%= categoria.nome_categoriaBlog %></h1>
+        <hr class="divider">
+    </div>
+
+    <!-- Exibição das postagens -->
+    <div class="category-posts">
+        <% if (postagensCategoria.length > 0) { %>
+            <% for(i=0; i < postagensCategoria.length; i++){ %>
+                <div class="post-card">
+                    <h3 class="post-title"><%= postagensCategoria[i].titulo_postagemBlog %></h3>
+                    <p class="post-description">Descrição: <%= postagensCategoria[i].descricao_postagemBlog %></p>
+                    <a href="/Postagem/<%= postagensCategoria[i].slug_postagemBlog %>" class="read-more-btn">
+                        <button>Leia mais</button>
+                    </a>
+                    <hr class="divider">
+                    <small class="post-date">Data de criação: <%= postagensCategoria[i].data_postagemBlog %></small>
+                </div>
+            <% } %>
+        <% } else { %>
+            <p class="no-posts-message">Nenhuma postagem cadastrada nessa categoria.</p>
+        <% } %>
+    </div>
+    <a href="/Categorias-Blog" class="category-item">
+        <h4>Voltar></h4>
+    </a>
+
+    <%- include('../../partials/usuario-footer') %>
+
+</body>
+
+</html>

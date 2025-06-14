@@ -1,0 +1,25 @@
+<div id="carrinho-section" style="display: none;">
+    <h2>Seu Carrinho</h2>
+    <div id="carrinho-items"> 
+        <% if (produtos.length > 0) { %>
+            <% produtos.forEach(item => { %>
+                <div class="carrinho-item">
+                    <img src="<%= item.primeiraImagem %>" alt="Imagem do Produto">
+                    <div class="carrinho-info">
+                        <p class="carrinho-nome"><%= item.nome_produto %></p>
+                        <p class="carrinho-quantidade">Quantidade: <%= item.quantidade %></p>
+                    </div>
+                    <form action="/Excluir-Carrinho" method="POST" class="deletarCarrinho-form">
+                        <input type="hidden" name="id" value="<%= item.id_produto %>">
+                        <input type="hidden" name="id_usuario" value="<%= user.id_usuario %>">
+                        <button class="excluir-item">Excluir</button>
+                    </form>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        <% } %>
+    </div>
+    <button id="fechar-carrinho">Fechar</button>
+    <a href="/Orcamento"><button id="fazer-orcamento">Fechar Carrinho</button></a>
+</div>

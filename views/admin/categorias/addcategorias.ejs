@@ -1,0 +1,53 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+
+<body class="produtoAdm">
+
+    <div class="geralHomeadm">
+        <!-- Mensagens do sistema -->
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="conteudo-novo-produto">
+                <form action="/Admin/Categorias/Novo" method="POST" enctype="multipart/form-data" id="addCategoria-form">
+                    
+                    <!-- Nome da Categoria -->
+                    <div class="campo-novo">
+                        <label for="nome">Nome: </label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome da Categoria" required>
+                    </div>
+
+                    <!-- Slug da Categoria -->
+                    <div class="campo-novo">
+                        <label for="slug">Slug: </label>
+                        <input type="text" name="slug" id="slug" placeholder="Slug da Categoria" required>
+                    </div>
+
+                    <!-- Imagem da Categoria -->
+                    <div class="campo-novo">
+                        <label for="imagem">Imagem:</label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;">
+                        <button type="button" id="uploadButton">Escolher Imagem</button>
+                        <img id="preview-image" style="display: none; max-width: 200px; margin-top: 10px;">
+                    </div>
+
+                    <!-- Botão Criar Categoria -->
+                    <div class="campo-novo">
+                        <button type="submit" class="addNovobtn">Criar Categoria</button>
+                    </div>
+                </form>
+
+                <div class="addNovobtn">
+                    <a href="/Admin/Categorias">
+                        <button>Voltar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

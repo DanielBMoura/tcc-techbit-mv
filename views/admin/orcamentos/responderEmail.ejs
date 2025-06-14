@@ -1,0 +1,95 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+        <!-- Navbar -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="orcamento-detalhes-container">
+                <div class="orcamento-detalhes-card">
+                    <div class="icon-placeholder">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+
+                    <p><strong>Número do Orçamento:</strong> <%= dadosObjeto.numero_orcamento %></p>
+                    <p><strong>Data:</strong> <%= new Date(dadosObjeto.data_orcamento).toLocaleDateString('pt-BR') %></p>
+
+                    <h3>Usuário</h3>
+                    <p><strong>Nome:</strong> <%= dadosObjeto.nome_usuario %></p>
+                    <p><strong>Email:</strong> <%= dadosObjeto.email_usuario %></p>
+
+                    <h3>Endereço</h3>
+                    <p><strong>Rua:</strong> <%= dadosObjeto.endereco_usuario.rua %></p>
+                    <p><strong>Bairro:</strong> <%= dadosObjeto.endereco_usuario.bairro %></p>
+                    <p><strong>Cidade:</strong> <%= dadosObjeto.endereco_usuario.cidade %> - <%= dadosObjeto.endereco_usuario.uf %></p>
+                    <p><strong>CEP:</strong> <%= dadosObjeto.endereco_usuario.cep %></p>
+
+                    <h3>Itens do Orçamento</h3>
+                    <% dadosObjeto.itens.forEach(item => { %>
+                        <p><strong>Produto:</strong> <%= item.nome_produto %> - <strong>Quantidade:</strong> <%= item.quantidade %></p>
+                    <% }) %>
+
+                    <% if (dadosObjeto.status_orcamento == 'Aguardando resposta do cliente') { %>
+                        <button class="btn-acoes btn-finalizar">Finalizar orçamento</button><br>
+                        <button class="btn-acoes btn-cancelar-orcamento" data-id="<%= dadosObjeto.numero_orcamento %>">Cancelar orçamento</button><br>
+                    
+                        <div id="CaixaValor" style="display: none;">
+                            <div class="valor-content">
+                                <h3>Valor total do pedido:</h3>
+                                <form action="/Admin/Finalizar-Orcamento" class="formFinalizarOrcamento" method="POST">
+                                    <input type="hidden" name="id_usuario" id="idUsuario" value="<%= dadosObjeto.id_usuario %>">
+                                    <input type="hidden" name="num_orcamento" id="numOrcamento" value="<%= dadosObjeto.numero_orcamento %>">
+                                    <input type="hidden" name="itensOrcamento" value="<%= JSON.stringify(dadosObjeto.itens) %>">
+                                    <input 
+                                        type="text"
+                                        id="valor" 
+                                        name="valor" 
+                                        inputmode="decimal" 
+                                        required
+                                        placeholder="R$ 0,00"
+                                    >
+                                    <button id="confirmarValor">Confirmar</button>
+                                    <button id="cancelarValor">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+                    
+                    <% } %>
+
+                    <% if (dadosObjeto.status_orcamento == 'Aguardando resposta do Administrador') { %>
+                        <button id="btnResponder" class="btn-acoes">Responder Email</button><br>
+                    <% } %>
+
+                    <a href="/Admin/Orcamentos/<%= slug %>" class="orcamento-btn-voltar">Voltar</a>
+                </div>
+            </div>
+
+            <div class="orcamento-detalhes-container" id="formulario-resposta">
+                <div class="orcamento-detalhes-card">
+                    <h3>Responder</h3>
+                    <form id="respostaEmail" method="POST" action="/Admin/Orcamentos/Email-Responder">
+                        <input type="hidden" name="num_orcamento" value="<%= dadosObjeto.numero_orcamento %>">
+
+                        <label>Para:</label>
+                        <input type="email" name="email_usuario" value="<%= dadosObjeto.email_usuario %>" readonly>
+
+                        <label>Assunto:</label>
+                        <input type="text" name="assunto" value="Resposta do Orçamento" readonly>
+
+                        <label>Mensagem:</label>
+                        <textarea rows="5" name="mensagem" id="mensagemEmail" required></textarea>
+
+                        <button type="submit" id="enviarButton" class="btn-acoes">Enviar</button>
+                        <button type="button" id="fecharButton" class="btn-acoes">Fechar</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

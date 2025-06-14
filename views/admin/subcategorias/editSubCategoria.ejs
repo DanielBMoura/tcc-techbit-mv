@@ -1,0 +1,63 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body class="produtoAdm">
+    <!-- Título da página -->
+
+    <div class="geralHomeadm">
+
+        <!-- Navbar lateral -->
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="conteudo-novo-produto">
+            <form action="/Admin/SubCategoria/Editar" method="POST" enctype="multipart/form-data" id="editSubCategoria-form">
+                <input type="hidden" name="id" value="<%= subCategoria.id_subCategoria %>">
+
+                <div class="campo-novo">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome da SubCategoria" value="<%= subCategoria.nome_subCategoria %>" required>
+                </div>
+
+                <div class="campo-novo">
+                    <label for="slug">Slug: </label>
+                    <input type="text" name="slug" id="slug" placeholder="Slug da SubCategoria" value="<%= subCategoria.slug_subCategoria %>" required>
+                </div>
+
+                <div class="campo-novo">
+                    <label for="categoria">Categoria: </label>
+                    <select name="idCategoria" required>
+                        <option value="<%= subCategoria.id_categoria %>" selected>
+                            <%= categoria.nome_categoria %>
+                        </option>
+                        <% if (categorias.length > 0) { %>
+                            <% for (let i = 0; i < categorias.length; i++) { %>
+                                <option value="<%= categorias[i].id_categoria %>">
+                                    <%= categorias[i].nome_categoria %>
+                                </option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div class="campo-novo">
+                    <label for="image">Imagem:</label>
+                    <input type="hidden" name="imagem_antiga" id="imagem_antiga" value="<%= subCategoria.imagem_subCategoria %>">
+                    <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;">
+                    <button type="button" id="uploadButton">Escolher Imagem</button>
+                    <img id="preview-image" src="<%= subCategoria.imagem_subCategoria %>" alt="Pré-visualização da imagem do produto" style="max-width: 200px; margin-top: 10px;">
+                </div>
+
+                <div class="campo-novo">
+                    <button type="submit">Editar SubCategoria</button>
+                </div>
+            </form>
+
+            <!-- Link Voltar -->
+            <div class="addNovobtn">
+                <a href="/Admin/SubCategorias/<%= categoria.slug_categoria %>" class="addNovobtn"><button>Voltar</button></a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

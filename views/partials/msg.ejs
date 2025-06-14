@@ -1,0 +1,13 @@
+<h4 id="mensagem"></h4>
+
+<% if (success_msg.length > 0) { %>
+    <h4 id="mensagem"><%= success_msg %></h4>
+<% } %>
+
+<% if (error_msg.length > 0) { %>
+    <div id="alerta" class="alert alert-danger">
+        <%= error_msg %>
+    </div>
+<% } %>
+
+<!-- Personalizar msg -->

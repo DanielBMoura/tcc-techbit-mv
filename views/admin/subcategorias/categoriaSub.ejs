@@ -1,0 +1,43 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <!-- Mensagens -->
+
+
+            <section class="area-produtos">
+                <% if (categorias.length > 0) { %>
+                    <div class="product-container">
+                        <% for (let i = 0; i < categorias.length; i++) { %>
+                            <div class="product-boxAdm">
+                                <img src="<%= categorias[i].imagem_categoria %>" alt="<%= categorias[i].nome_categoria %>">
+                                <h3><%= categorias[i].nome_categoria %></h3>
+
+                                <a href="/Admin/SubCategorias/<%= categorias[i].slug_categoria %>">
+                                    <button class="btn-editar">Ver Subcategorias</button>
+                                </a>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } else { %>
+                    <p class="msg-sem-categorias">Nenhuma categoria registrada</p>
+                <% } %>
+
+                <hr>
+
+                <div class="addNovobtn">
+                    <a href="/Admin/SubCategorias/Adicionar">
+                        <button class="btn-adicionar">Adicionar nova SubCategoria</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

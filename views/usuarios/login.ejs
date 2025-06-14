@@ -1,0 +1,51 @@
+<!-- Cabeçalho -->
+<%- include('../partials/usuario-header', { title: 'Login' }) %>
+
+<body>
+    
+    <!-- Navbar -->
+    <%- include('../partials/usuario-navbar') %>
+    
+    <!-- começo login  -->
+
+    <div class="login1">
+        <div class="boxlogin1">
+            <div class="titlle">
+                <h2>LOGIN</h2>
+            </div>
+            <form action="/login-form" method="POST" id="login-form">
+                <h3>Email:<br></h3>
+                <div class="email">
+                    <img src="icons/icons8-mensagem-30.png" alt="mail">
+                    <input type="email" name="email" id="email" placeholder="Digite seu E-mail" required>
+                </div>
+                <h3>Senha:<br></h3>
+                <div class="senha">
+                    <img src="icons/icons8-cadeado-30.png" alt="senha">
+                    <input type="password" id="campoSenha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <div class="lembrar">
+                    <h5><input type="checkbox" id="botaoMostrarSenha" onclick="mostrarSenha()">Mostrar senha</h5>
+                </div>
+                <div class="lebrar">
+                    <div class="cadastro">
+                        <a href="/Cadastro">
+                            <h5>Não possui cadastro?</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="botoes1">
+                    <div class="acessar2">
+                        <button type="submit">Acessar</button>
+                    </div>
+                    <div class="voltar2">
+                        <a href="/"><button type="button">Voltar</button></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/js/script.js" defer></script>
+</body>
+
+</html>

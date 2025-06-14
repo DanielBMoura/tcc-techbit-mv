@@ -1,0 +1,57 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+
+<body>
+    <div class="geralHomeadm">
+
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+            <div class="container-novo-produto">
+                <div class="conteudo-novo-produto">
+                    <form action="/Admin/Postagens/Editar" method="POST" id="editarPostagem-form">
+                        <input type="hidden" name="id" value="<%= editarPostagem.id_postagemBlog %>">
+
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Título da Postagem" value="<%= editarPostagem.titulo_postagemBlog %>" required>
+
+                        <label for="slug">Slug:</label>
+                        <input type="text" id="slug" name="slug" placeholder="Slug da Postagem" value="<%= editarPostagem.slug_postagemBlog %>" required>
+
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" id="descricao" name="descricao" placeholder="Descrição da Postagem" value="<%= editarPostagem.descricao_postagemBlog %>" required>
+
+                        <label for="conteudo">Conteúdo:</label>
+                        <textarea name="conteudo" id="conteudo" rows="10" required><%= editarPostagem.conteudo_postagemBlog %></textarea>
+
+                        <label for="categoriaBlog">Categoria:</label>
+                        <select name="idCategoriaBlog" required>
+                            <option value="<%= editarPostagem.categoriaBlog.id_categoriaBlog %>" selected>
+                                <%= editarPostagem.categoriaBlog.nome_categoriaBlog %>
+                            </option>
+                            <% if (categorias.length > 0) { %>
+                                <% for (let i = 0; i < categorias.length; i++) { %>
+                                    <option value="<%= categorias[i].id_categoriaBlog %>">
+                                        <%= categorias[i].nome_categoriaBlog %>
+                                    </option>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                        <button type="submit">Editar Postagem</button>
+                    </form>
+
+                    <div class="addNovobtn">
+                        <a href="/Admin/Postagens">
+                            <button>Voltar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

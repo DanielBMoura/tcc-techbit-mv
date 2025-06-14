@@ -1,0 +1,118 @@
+<!-- Cabeçalho -->
+<%- include('../partials/usuario-header', { title: 'Home' }) %>
+
+    <body>
+
+        <%- include('../partials/msg') %>
+            <!-- Navbar -->
+            <%- include('../partials/usuario-navbar') %>
+
+                <!-- Carrossel -->
+                <div class="carrossel">
+                    <div class="container-slider">
+                        <div class="container-imgs">
+                            <button id="voltar-button"><img src="icons/flexaPassa.png" alt="voltar-button"></button>
+                            <button id="passar-button"><img src="icons/flexaPassa.png" alt="passar-button"></button>
+                            <img src="imgs/banner1.png" alt="banner1" class="slider on">
+                            <img src="imgs/banner2.png" alt="banner2" class="slider">
+                            <img src="imgs/banner3.png" alt="banner3" class="slider">
+                            <img src="imgs/banner4.png" alt="banner4" class="slider">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home -->
+                <div class="produtos">
+                    <h1>Produtos</h1>
+                    <div class="cases">
+                        <div class="prod">
+                            <a href="/Produtos">
+                                <img src="imgs/rosca_int-removebg-preview(1).png" alt="Rebite rosca interna">
+                                <h4>Rebites com <br>rosca interna</h4>
+                            </a>
+                        </div>
+                        <div class="prod">
+                            <a href="/Produtos">
+                                <img src="imgs/rebiteRepuxo-removebg-preview.png" alt="Rebite de repuxo">
+                                <h4>Rebites de repuxo</h4>
+                            </a>
+                        </div>
+                        <div class="prod">
+                            <a href="/Produtos">
+                                <img src="imgs/especial-removebg-preview.png" alt="Rebites especiais">
+                                <h4>Rebites especiais</h4>
+                            </a>
+                        </div>
+                        <div class="prod">
+                            <a href="/Produtos">
+                                <img src="imgs/manualvermelha2-removebg-preview.png" alt="Rebitadeira manual">
+                                <h4>Rebitadeira manual</h4>
+                            </a>
+                        </div>
+                        <div class="prod">
+                            <a href="/Produtos">
+                                <img src="imgs/hidropneu2-removebg-preview(1).png" alt="Rebitadeira hidropneumatica">
+                                <h4>Rebitadeira <br>hidropneumatica</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sobre a empresa -->
+                <div class="sobretech">
+                    <div class="textos">
+                        <h1>Sobre a TechBit</h1>
+                        <p>A TechBit foi fundada em 2020 com um objetivo claro: ser referência na revenda de rebites e
+                            fixadores industriais no mercado brasileiro. Atuando com compromisso, qualidade e agilidade,
+                            nos tornamos parceiros estratégicos para indústrias, oficinas e profissionais da área
+                            metalúrgica e mecânica.
+
+                            Desde o início, buscamos oferecer não apenas produtos, mas também soluções confiáveis e de
+                            alto desempenho para aplicações em diversos setores. Trabalhamos com uma linha completa de
+                            rebites – dos mais simples aos mais técnicos – sempre prezando pela procedência, resistência
+                            e entrega rápida.
+
+                            Em 2025, entramos em uma nova fase: a expansão para o comércio eletrônico. Agora, nossos
+                            clientes podem contar com a loja online TechBit, onde encontram o mesmo atendimento
+                            especializado, a mesma qualidade e a praticidade de comprar de onde estiverem.
+
+                            Nosso compromisso continua o mesmo: oferecer rebites com qualidade, preço justo e entrega
+                            eficiente para todo o Brasil.
+                            <br>
+
+                            <strong>TechBit – Fixando confiança, entregando qualidade.</strong></p>
+
+                        <h2>Origem do nome TechBit-MV</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    </div>
+
+                    <!-- Missão, visão e valores -->
+                    <div class="sobreValores">
+                        <div class="missao">
+                            <img src="imgs/fogueteazul.png" alt="missão">
+                            <h3>Missão</h3>
+                            <h4>Lorem Ipsum is simply dummy <br>text of the printing and typesetting <br>industry.
+                                lorem Ipsum has been the </h4>
+                        </div>
+                        <div class="visao">
+                            <img src="imgs/olhoazul.png" alt="visao">
+                            <h3>Visão</h3>
+                            <h4>Lorem Ipsum is simply dummy <br>text of the printing and typesetting <br>industry.
+                                lorem Ipsum has been the </h4>
+                        </div>
+                        <div class="valores">
+                            <img src="imgs/estrelaazul.png" alt="valores">
+                            <h3>Valores</h3>
+                            <h4>Lorem Ipsum is simply dummy <br>text of the printing and typesetting <br>industry.
+                                lorem Ipsum has been the </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodapé -->
+                <%- include('../partials/usuario-footer') %>
+
+    </body>
+
+    </html>

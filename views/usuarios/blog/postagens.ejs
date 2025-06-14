@@ -1,0 +1,30 @@
+<!-- Cabeçalho -->
+<%- include('../../partials/usuario-header', { title: 'Home' }) %>
+
+<body>
+    
+    <%- include('../../partials/msg') %>
+    <!-- Navbar -->
+    <%- include('../../partials/usuario-navbar') %>
+    <div class="post-container">
+        <!-- Título da postagem -->
+        <h1 class="post-title"><%= postagem.titulo_postagemBlog %></h1>
+        <hr class="divider">
+        
+        <!-- Data de publicação -->
+        <small class="post-date">Publicado em: <%= postagem.data_postagemBlog %></small>
+        <hr class="divider">
+
+        <!-- Conteúdo da postagem -->
+        <div class="post-content">
+            <p><%= postagem.conteudo_postagemBlog %></p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="category-item" onclick="history.back()">Voltar</button>
+    </div>
+    <%- include('../../partials/usuario-footer') %>
+
+</body>
+
+</html>

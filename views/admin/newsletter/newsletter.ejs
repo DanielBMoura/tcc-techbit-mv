@@ -1,0 +1,43 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+        <!-- Navbar -->
+
+        <%- include('../../partials/admin-navbar') %>
+        <!-- Conteúdo principal -->
+        <div class="main">
+            <div class="cards-containerADM">
+                <a href="/Admin/Newsletter/Usuarios">
+                    <div class="card">
+                        <h2><i class=""></i><%= totalUsuarios %></h2>
+                        <p>usuários cadastrados</p>
+                    </div>
+                </a>
+                <a href="/Admin/Newsletter/Emails">
+                    <div class="card">
+                        <h2><i class=""></i><%= totalEmails %></h2>
+                        <p>emails enviados</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="" id="">
+                <div class="">
+                    <h3>Mandar Newsletter</h3>
+                    <form id="formNewsletterAdmin" method="POST" action="/Admin/Newsletter/Emails-Newsletter">
+                        <label>Assunto:</label>
+                        <input type="text" name="assunto" placeholder="Assunto do Newsletter" required>
+
+                        <label>Mensagem:</label>
+                        <textarea rows="5" name="mensagem" id="mensagemNewsletter" required></textarea>
+
+                        <button type="submit" id="enviarButton" class="btn-acoes">Criar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>

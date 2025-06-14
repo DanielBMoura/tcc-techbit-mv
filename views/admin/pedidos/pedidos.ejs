@@ -1,0 +1,30 @@
+<%- include('../../partials/admin-header') %>
+<%- include('../../partials/msg') %>
+<body>
+    <div class="geralHomeadm">
+        <!-- Navbar -->
+
+        <%- include('../../partials/admin-navbar') %>
+
+        <!-- Conteúdo principal -->
+        <section class="area-produtos">
+
+
+            <div class="product-container">
+                <% statusList.forEach(function(status) { %>
+                    <a href="/Admin/Pedidos/<%= status.slug %>" class="product-boxAdm card-link">
+                        <!-- Ícone genérico -->
+                        <div class="icon-placeholder">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3><%= status.nome %></h3>
+                    </a>
+                <% }) %>
+            </div>
+
+            <hr>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
